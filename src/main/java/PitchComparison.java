@@ -4,26 +4,24 @@
 public class PitchComparison {
 
     private float pitch;
-    private char[] notes;
+    private final float A440 = 440.0f;
 
-    public PitchComparison(){
-
+    public PitchComparison(float f){
+        pitch = f;
     }
 
-    public static void main(String[] args){
+    public String determinePitch() {
+        String p = null;
 
-        double A = 440.0000;
 
-        System.out.println(A*16/9);
-        System.out.println(A*9/5);
-
+        return p;
     }
+
 
 }
 
 enum Pitches {
-    A, Af, As, B, Bf, Bs, C, Cf, Cs, D, Df, Ds,
-    E, Ef, Es, F, Ff, Fs, G, Gf, Gs;
+    C, Cs, Df, D, Ds, Ef, E, F, Fs, Gf, G, Gs, Af, A, As, Bf, B;
 }
 
 /**
@@ -47,9 +45,8 @@ enum Pitches {
  *
  * RANGES:
  *
- * Bass - C2-E4
- * Tenor - C3-C5
- * Alto - G3-G5
- * Soprano - C4-C6
+ * Bass - G1-E4
+ * Tenor - A2-D5
+ * Alto - C3-C6
+ * Soprano - G3-Gf6
  */
-
