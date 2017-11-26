@@ -1,3 +1,5 @@
+package Pitches;
+
 import be.tarsos.dsp.*;
 import be.tarsos.dsp.io.jvm.AudioDispatcherFactory;
 import be.tarsos.dsp.pitch.*;
@@ -11,16 +13,23 @@ import java.util.Scanner;
 public class APITest {
 
     private static boolean bool = false;
+    private static PitchComparison comp;
 
     public static void main(String[] args) {
 
         Scanner keyboard = new Scanner(System.in);
         printOutOptions();
-        if(keyboard.next().equals("1")){
+        String s = keyboard.next();
+        if(s.equals("1")){
             startPitchAnalysis();
-        } else if(keyboard.next().equals("2")){
-            startPitchAnalysis();
+        } else if(s.equals("2")){
+            comp = new PitchComparison("Pitches.txt");
+            comp.create();
             bool = true;
+            startPitchAnalysis();
+        } else if(s.equals("3")){
+            comp = new PitchComparison("Pitches.txt");
+            comp.create();
         }
 
     }
@@ -31,19 +40,22 @@ public class APITest {
             public void handlePitch(PitchDetectionResult pitchDetectionResult, AudioEvent audioEvent) {
                 float pitch = pitchDetectionResult.getPitch();
                 if(pitch != -1.0){
-                    System.out.println(audioEvent.getTimeStamp() + " ");
                     if(bool==true){
-                        PitchComparison comp = new PitchComparison(pitch);
-                        System.out.println(comp.determinePitch());
+                        System.out.print(pitch + " ");
+                        String note = comp.determinePitch(246.36871f);
+                        if(!note.equalsIgnoreCase("x")){
+                            System.out.println(note);
+                        }
+                        System.out.println();
                     } else {
-                        System.out.println(pitch);
+                        System.out.println(audioEvent.getTimeStamp() + " " + pitch);
                     }
                 }
             }
         };
         try {
             AudioDispatcher adp = AudioDispatcherFactory.fromDefaultMicrophone(2048, 0);
-            adp.addAudioProcessor(new PitchProcessor(PitchProcessor.PitchEstimationAlgorithm.YIN, 44100, 2048, handler));
+            adp.addAudioProcessor(new PitchProcessor(PitchProcessor.PitchEstimationAlgorithm.AMDF, 44100, 2048, handler));
             adp.run();
         } catch (LineUnavailableException e) {
             e.printStackTrace();

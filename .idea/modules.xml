@@ -5,6 +5,12 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/capstone.iml" filepath="$PROJECT_DIR$/.idea/modules/capstone.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/capstone_main.iml" filepath="$PROJECT_DIR$/.idea/modules/capstone_main.iml" group="capstone" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/capstone_test.iml" filepath="$PROJECT_DIR$/.idea/modules/capstone_test.iml" group="capstone" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/client.iml" filepath="$PROJECT_DIR$/.idea/modules/client.iml" group="client" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/client/client_main.iml" filepath="$PROJECT_DIR$/.idea/modules/client/client_main.iml" group="client" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/client/client_test.iml" filepath="$PROJECT_DIR$/.idea/modules/client/client_test.iml" group="client" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core.iml" filepath="$PROJECT_DIR$/.idea/modules/core.iml" group="core" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/core_main.iml" filepath="$PROJECT_DIR$/.idea/modules/core/core_main.iml" group="core" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/core_test.iml" filepath="$PROJECT_DIR$/.idea/modules/core/core_test.iml" group="core" />
     </modules>
   </component>
 </project>

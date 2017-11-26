@@ -4,6 +4,12 @@
     <bytecodeTargetLevel>
       <module name="capstone_main" target="1.8" />
       <module name="capstone_test" target="1.8" />
+      <module name="client_main" target="1.8" />
+      <module name="client_test" target="1.8" />
+      <module name="core_main" target="1.8" />
+      <module name="core_test" target="1.8" />
+      <module name="UI_main" target="1.8" />
+      <module name="UI_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
