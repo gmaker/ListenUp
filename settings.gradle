@@ -1,5 +1,4 @@
 rootProject.name = 'capstone'
-include 'UI'
 include 'client'
 include 'core'
 

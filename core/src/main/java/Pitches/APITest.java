@@ -28,7 +28,7 @@ public class APITest {
             bool = true;
             startPitchAnalysis();
         } else if(s.equals("3")){
-            comp = new PitchComparison("Pitches.txt");
+            comp = new PitchComparison("C:\\Users\\smsea\\IdeaProjects\\capstone\\Pitches.txt");
             comp.create();
         }
 
@@ -42,7 +42,7 @@ public class APITest {
                 if(pitch != -1.0){
                     if(bool==true){
                         System.out.print(pitch + " ");
-                        String note = comp.determinePitch(246.36871f);
+                        String note = comp.determinePitch(pitch);
                         if(!note.equalsIgnoreCase("x")){
                             System.out.println(note);
                         }

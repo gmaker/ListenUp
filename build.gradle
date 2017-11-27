@@ -25,7 +25,9 @@ project(':client') {
 }
 
 project(':core') {
-
+    dependencies{
+        compile fileTree(dir: 'resources')
+    }
 }
 
 
