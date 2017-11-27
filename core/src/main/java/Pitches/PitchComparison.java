@@ -1,34 +1,32 @@
 package Pitches;
 
-import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  * Created by Sean Murphy on 10/30/2017.
  */
 
-public class PitchComparison {
+public class PitchComparison implements NoteListener{
 
-    private String filename;
-    //private static Map<Float, String> pitchMap = new HashMap<>();
     private float[][] pitchArray;
     private ArrayList<String> notes;
     private final int PITCHRANGE = 4;
+    private NoteMap noteMap;
+    //private ArrayList<NoteListener> noteListeners = new ArrayList<>();
 
-    public PitchComparison(String f){
-        //System.out.println("constructor");
-        filename = f;
+
+    public PitchComparison(){
+        noteMap = NoteMap.getNoteMap();
     }
 
     public String determinePitch(float p) {
-        //System.out.println("determinePitch");
 
+        pitchArray = noteMap.getPitchArray();
+        notes = noteMap.getNotes();
         if(validPitch(p).equals("yes")) {
             int range = determineRange(p);
             String note = comparePitchValues(p, range);
+            //callListener(note, p);
             return note;
         } else {
             return "Not valid pitch. Try Again";
@@ -47,18 +45,7 @@ public class PitchComparison {
         //System.out.println("determineRange");
         /*float down = pitchAccuracy(p, "down");
         float up = pitchAccuracy(p, "up");
-
-        if(down>= 65.41 && up<= 127.14999){
-            return 0;
-        } else if(down>= 127.15 && up<= 254.28999){
-            return 1;
-        } else if(down>= 254.29 && up<= 508.56999){
-            return 2;
-        } else if(down>= 508.57 && up<= 987.77){
-            return 3;
-        } else {
-            return -1;
-        }*/
+        */
 
         /**
          * temp = [0][n] - [pA.length-1][n-1];
@@ -161,39 +148,17 @@ public class PitchComparison {
 
     }
 
-    public void create(){
-        Path filePath = Paths.get(filename);
-        Scanner scan = null;
-        try {
-            scan = new Scanner(filePath);
-            createPitchMap(scan);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    @Override
+    public void noteChanged(String note, float pitch) {
+        System.out.println("NoteChanged in PitchComparison:   " + note);
     }
 
-    private void createPitchMap(Scanner scan){
-        notes = new ArrayList<>();
-        ArrayList<Float> frequencies = new ArrayList<>();
-        int noteAmount = 0, temp = 0;
-        while(scan.hasNext()){
-            String s = scan.next();
-            if(s.substring(0,1).matches("\\d+")){
-                frequencies.add(Float.parseFloat(s));
-            } else {
-                notes.add(s);
-                noteAmount++;
-            }
+    //public void addListener(NoteListener listener) {noteListeners.add(listener);}
+    /*private void callListener(String n, float p){
+        for(NoteListener n1 : noteListeners){
+            n1.noteChanged(n, p);
         }
-        pitchArray = new float[noteAmount][PITCHRANGE];
-        for(int i=0; i<pitchArray.length; i++){
-            for(int j=0; j<pitchArray[i].length; j++){
-                pitchArray[i][j] = frequencies.get(temp);
-                temp++;
-            }
-        }
-        //System.out.println(pitchArray.length + " " + pitchArray[0].length);
-    }
+    }*/
 }
 
 /*enum Pitch {
