@@ -29,7 +29,7 @@ public class FrequencyDetector {
             bool = true;
         }
         NoteMap map = new NoteMap();
-        map.create("C:\\Users\\smsea\\IdeaProjects\\capstone\\resources\\Pitches.txt");
+        map.create("Pitches.txt");
         comp = new PitchComparison();
         fq.addListener(comp);
         fq.start();

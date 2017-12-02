@@ -12,7 +12,6 @@ allprojects {
 
     dependencies {
         testCompile group: 'junit', name: 'junit', version: '4.12'
-        compile fileTree(dir: 'libs', include: ['*.jar'])
     }
 }
 
@@ -26,9 +25,7 @@ project(':client') {
 
 project(':core') {
     dependencies{
-        compile fileTree(dir: 'resources')
+        compile fileTree(dir: 'libs', include: ['*.jar'])
     }
 }
-
-
 

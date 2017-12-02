@@ -30,8 +30,7 @@ public class MainWindow extends JFrame {
         emptyLabel.setPreferredSize(new Dimension(500, 500));
 
         map = new NoteMap();
-        map.create("C:\\Users\\smsea\\IdeaProjects\\capstone\\resources\\Pitches.txt");
-
+        map.create("Pitches.txt");
 
 
         this.setJMenuBar(new AppMenuBar(this));
