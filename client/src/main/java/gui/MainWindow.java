@@ -1,6 +1,5 @@
 package gui;
 
-import Pitches.FrequencyDetector;
 import Pitches.NoteMap;
 
 import javax.swing.*;

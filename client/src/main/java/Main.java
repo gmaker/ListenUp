@@ -1,4 +1,3 @@
-import Pitches.CoreController;
 import gui.MainWindow;
 
 /**

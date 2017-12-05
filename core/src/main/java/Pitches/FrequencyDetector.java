@@ -4,11 +4,9 @@ import be.tarsos.dsp.AudioDispatcher;
 import be.tarsos.dsp.AudioEvent;
 import be.tarsos.dsp.io.jvm.AudioDispatcherFactory;
 import be.tarsos.dsp.pitch.*;
-import gui.NotePanel;
 
 import javax.sound.sampled.LineUnavailableException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  * Created by Sean Murphy on 10/20/2017.

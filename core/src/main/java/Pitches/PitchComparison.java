@@ -1,7 +1,5 @@
 package Pitches;
 
-import gui.NotePanel;
-
 import java.util.ArrayList;
 
 /**
