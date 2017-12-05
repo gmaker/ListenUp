@@ -1,5 +1,7 @@
 package Pitches;
 
+import gui.NotePanel;
+
 import java.util.ArrayList;
 
 /**
@@ -12,8 +14,6 @@ public class PitchComparison implements NoteListener{
     private ArrayList<String> notes;
     private final int PITCHRANGE = 4;
     private NoteMap noteMap;
-    //private ArrayList<NoteListener> noteListeners = new ArrayList<>();
-
 
     public PitchComparison(){
         noteMap = NoteMap.getNoteMap();

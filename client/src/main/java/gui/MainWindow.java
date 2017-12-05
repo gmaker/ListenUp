@@ -1,5 +1,6 @@
 package gui;
 
+import Pitches.FrequencyDetector;
 import Pitches.NoteMap;
 
 import javax.swing.*;
@@ -37,6 +38,7 @@ public class MainWindow extends JFrame {
 
         notePanel = new NotePanel();
         menuPanel = new MenuPanel();
+
 
         this.add(notePanel, BorderLayout.EAST);
         this.add(menuPanel, BorderLayout.CENTER);

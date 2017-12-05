@@ -4,6 +4,7 @@ import be.tarsos.dsp.AudioDispatcher;
 import be.tarsos.dsp.AudioEvent;
 import be.tarsos.dsp.io.jvm.AudioDispatcherFactory;
 import be.tarsos.dsp.pitch.*;
+import gui.NotePanel;
 
 import javax.sound.sampled.LineUnavailableException;
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class FrequencyDetector {
     private static PitchComparison comp;
     private ArrayList<NoteListener> noteListeners = new ArrayList<>();
 
-    public static void main(String[] args){
+    /*public static void main(String[] args){
         FrequencyDetector fq = new FrequencyDetector();
 
         System.out.println("What's your number: ");
@@ -34,14 +35,18 @@ public class FrequencyDetector {
         fq.addListener(comp);
         fq.start();
 
-    }
+    }*/
 
     public FrequencyDetector() {}
 
     public void start(){
         startPitchAnalysis();
     }
-
+    public void togglePitchComparison(){
+        comp = new PitchComparison();
+        addListener(comp);
+        bool = true;
+    }
 
     private void startPitchAnalysis(){
         PitchDetectionHandler handler = new PitchDetectionHandler() {
@@ -51,11 +56,13 @@ public class FrequencyDetector {
                 if(pitch != -1.0f) {
                     if (bool == false) {
                         System.out.println(pitch);
+                        //NotePanel.appendTextArea(pitch + "");
                     } else {
                         String note = comp.determinePitch(pitch);
                         if(!note.equals("X")){
                             System.out.println(note);
                             callListener(note, pitch);
+                            //NotePanel.appendTextArea(note + " " + pitch);
                         }
                     }
                 }
@@ -69,8 +76,9 @@ public class FrequencyDetector {
             e.printStackTrace();
         }
     }
-    private void addListener(NoteListener toAdd){
+    public void addListener(NoteListener toAdd){
         noteListeners.add(toAdd);
+        System.out.println(toAdd);
     }
     private void callListener(String n, float p){
         for(NoteListener n1 : noteListeners){
