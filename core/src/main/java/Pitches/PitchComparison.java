@@ -148,7 +148,7 @@ public class PitchComparison implements NoteListener{
 
     @Override
     public void noteChanged(String note, float pitch) {
-        System.out.println("NoteChanged in PitchComparison:   " + note);
+        System.out.println("NoteChanged in PitchComparison: " + note + " " + pitch);
     }
 
     //public void addListener(NoteListener listener) {noteListeners.add(listener);}

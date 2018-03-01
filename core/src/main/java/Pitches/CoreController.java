@@ -16,7 +16,7 @@ public class CoreController {
     public CoreController() {
         //actions = new ArrayList<>();
         //nm.create("Pitches.txt");
-        cc = this;
+        //cc = this;
     }
     public static CoreController getCoreController() {
         return cc;

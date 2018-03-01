@@ -1,6 +1,7 @@
 package gui;
 
 import Pitches.FrequencyDetector;
+import Pitches.MultiThread;
 
 import javax.swing.*;
 import java.awt.*;
@@ -73,6 +74,7 @@ public class MenuPanel extends JPanel implements ActionListener{
 
         //this.setBackground(Color.BLACK);
         this.add(cards, BorderLayout.CENTER);
+
     }
 
     private void createButton(JButton button, JPanel p){
@@ -98,10 +100,12 @@ public class MenuPanel extends JPanel implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == frequencyButton){
-            fq.start();
+            MultiThread thread1 = new MultiThread("Frequencies", fq);
+            thread1.go();
         } else if(e.getSource() == noteButton){
             fq.togglePitchComparison();
-            fq.start();
+            MultiThread thread2 = new MultiThread("Notes", fq);
+            thread2.go();
         } else if(e.getSource() == rhythmButton){
             NotePanel.appendTextArea("hello");
         } else {

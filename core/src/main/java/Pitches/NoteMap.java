@@ -1,8 +1,7 @@
 package Pitches;
 
+import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -25,10 +24,8 @@ public class NoteMap{
     public ArrayList<String> getNotes() {return notes;}
 
     public void create(String filename){
-        Path filePath = Paths.get(filename);
-        Scanner scan = null;
         try {
-            scan = new Scanner(filePath);
+            Scanner scan = new Scanner(new File(filename));
             createPitchMap(scan);
         } catch (IOException e) {
             e.printStackTrace();

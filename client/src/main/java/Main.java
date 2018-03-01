@@ -1,3 +1,4 @@
+import Pitches.CoreController;
 import gui.MainWindow;
 
 /**
@@ -9,5 +10,6 @@ public class Main {
 
         /** create the Main Window **/
         new MainWindow();
+        new CoreController();
     }
 }

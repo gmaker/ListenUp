@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class FrequencyDetector {
 
     private float pitch = 0.0f;
+    private String finalNote;
     private static boolean bool = false;
     private static PitchComparison comp;
     private ArrayList<NoteListener> noteListeners = new ArrayList<>();
@@ -28,7 +29,7 @@ public class FrequencyDetector {
             bool = true;
         }
         NoteMap map = new NoteMap();
-        map.create("Pitches.txt");
+        map.create("NoteData.txt");
         comp = new PitchComparison();
         fq.addListener(comp);
         fq.start();
@@ -60,6 +61,7 @@ public class FrequencyDetector {
                         if(!note.equals("X")){
                             System.out.println(note);
                             callListener(note, pitch);
+                            finalNote = note;
                             //NotePanel.appendTextArea(note + " " + pitch);
                         }
                     }
@@ -74,6 +76,9 @@ public class FrequencyDetector {
             e.printStackTrace();
         }
     }
+
+    public String getFinalNote(){ return finalNote; }
+
     public void addListener(NoteListener toAdd){
         noteListeners.add(toAdd);
         System.out.println(toAdd);

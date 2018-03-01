@@ -13,7 +13,6 @@ public class NotePanel extends JPanel implements NoteListener {
     private String n;
     private static JTextArea textArea;
 
-
     public NotePanel(){
 
         this.setPreferredSize(new Dimension(200, 500));
@@ -34,7 +33,7 @@ public class NotePanel extends JPanel implements NoteListener {
     public void noteChanged(String note, float pitch) {
         System.out.println("noteChanged in notePanel: " + note);
         n = note;
-        textArea.append(n + " " + pitch);
+        textArea.append(n + " " + pitch+ " hello listener");
     }
 
     /** Temporary fix for appending note data to the text area **/
