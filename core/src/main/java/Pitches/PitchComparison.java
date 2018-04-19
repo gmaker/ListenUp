@@ -6,28 +6,46 @@ import java.util.ArrayList;
  * Created by Sean Murphy on 10/30/2017.
  */
 
-public class PitchComparison implements NoteListener{
+public class PitchComparison {
 
     private float[][] pitchArray;
-    private ArrayList<String> notes;
+    private ArrayList<String> notesFlat;
+    private ArrayList<String> notesSharp;
+    private static boolean flatSharpToggle;
     private final int PITCHRANGE = 4;
     private NoteMap noteMap;
+    private ArrayList<NoteListener> noteListeners;
 
-    public PitchComparison(){
+    public PitchComparison(ArrayList<NoteListener> nl){
         noteMap = NoteMap.getNoteMap();
+        noteListeners = nl;
     }
 
-    public String determinePitch(float p) {
+    public void determinePitch(float pitch) {
 
         pitchArray = noteMap.getPitchArray();
-        notes = noteMap.getNotes();
-        if(validPitch(p).equals("yes")) {
-            int range = determineRange(p);
-            String note = comparePitchValues(p, range);
-            //callListener(note, p);
-            return note;
+        notesFlat = noteMap.getNotesFlat();
+        notesSharp = noteMap.getNotesSharp();
+        if(validPitch(pitch).equals("yes")) {
+            int range = determineRange(pitch);
+            String temp = comparePitchValues(pitch, range);
+            filterNote(temp, pitch);
         } else {
-            return "Not valid pitch. Try Again";
+            System.out.println("INVALID PITCH" + pitch);
+        }
+    }
+
+    private void callListener(String n, float p){
+        for(NoteListener n1: noteListeners){
+            //System.out.println("Calling in pc: "+n+" "+p);
+            n1.noteChanged(n, p);
+        }
+    }
+
+    private void filterNote(String note, float pitch){
+        if(!note.equals("X")){
+            //System.out.println(note);
+            callListener(note, pitch);
         }
     }
 
@@ -40,46 +58,12 @@ public class PitchComparison implements NoteListener{
     }
 
     private int determineRange(float p) {
-        //System.out.println("determineRange");
-        /*float down = pitchAccuracy(p, "down");
-        float up = pitchAccuracy(p, "up");
-        */
-
         /**
          * temp = [0][n] - [pA.length-1][n-1];
          * sum = temp/2;
          * ([0][n] + sum) - 0.00001;
          * ([pA.length-1][n-1] - sum);
          */
-        /*
-        int l = pitchArray.length - 1;
-        float below = 61.74f;
-        float above = 1046.5f;
-        int range = -1;
-        float p0, p1, p2, p3, temp1, temp2;
-        for(int i=0; i<PITCHRANGE; i++){
-            if(i==0){
-                p0 = below;
-                p3 = pitchArray[0][i+1];
-            } else if(i==3){
-                p0 = pitchArray[l][i-1];
-                p3 = above;
-            } else {
-                p0 = pitchArray[l][i-1];
-                p3 = pitchArray[0][i+1];
-            }
-            p1 = pitchArray[0][i];
-            p2 = pitchArray[l][i];
-            temp1 = (p1 + ((p1 - p0)/2));
-            temp2 = (p2 + ((p3 - p2)/2)) - 0.00001f;
-            System.out.println(temp1 + " " + temp2);
-            if(p >= temp1 && p <= temp2){
-                range = i;
-            }
-        }
-        System.out.println(range);
-        return range;*/
-
 
         if(p>= 65.41 && p<=127.14999){ //[0][0] && [pitchArray.length-1][0]
             return 0;
@@ -93,7 +77,7 @@ public class PitchComparison implements NoteListener{
             return -1;
         }
     }
-
+    /** Currently unused **/
     private float pitchAccuracy(float p, String d){
         if(d.equals("down")){
             return p * .99318182f;
@@ -120,43 +104,50 @@ public class PitchComparison implements NoteListener{
                 if(p>pitchArray[i][range] && i==pitchArray.length-1){
                     pBot = pitchArray[i][range];
                     pTop = pitchArray[0][range+1];
-                    marker = i;
+                    marker = 0;
                     i = pitchArray.length;
                 }
             }
         }
-        //System.out.println(pBot + " " + pTop + " " + p);
-        if(marker==16){
-            if ((pBot / p) >= .99318182f) {
-                return notes.get(marker);
-            } else if ((pTop / p) <= 1.00681818f) {
-                return notes.get(0);
+
+        String note = getNoteValue(marker, p, pBot, pTop);
+        return note;
+
+    }
+
+    private String getNoteValue(int marker, float p, float pBot, float pTop){
+        ArrayList<String> temp;
+        if(flatSharpToggle){
+            temp = notesSharp;
+        } else {
+            temp = notesFlat;
+        }
+        if(marker==0){
+            if ((pBot / p) >= .99090909f) {
+                return temp.get(11);
+            } else if ((pTop / p) <= 1.00909091f) {
+                return temp.get(marker);
             } else {
                 return "X";
             }
         } else {
-            if ((pBot / p) >= .99318182f) {
-                return notes.get(marker - 1);
-            } else if ((pTop / p) <= 1.00681818f) {
-                return notes.get(marker);
+            if ((pBot / p) >= .99090909f) {
+                return temp.get(marker - 1);
+            } else if ((pTop / p) <= 1.00909091f) {
+                return temp.get(marker);
             } else {
                 return "X";
             }
         }
-
     }
 
-    @Override
-    public void noteChanged(String note, float pitch) {
-        System.out.println("NoteChanged in PitchComparison: " + note + " " + pitch);
-    }
-
-    //public void addListener(NoteListener listener) {noteListeners.add(listener);}
-    /*private void callListener(String n, float p){
-        for(NoteListener n1 : noteListeners){
-            n1.noteChanged(n, p);
+    public static void setFlatSharpToggle(boolean toggle){
+        if(!toggle){
+            flatSharpToggle = false;
+        } else {
+            flatSharpToggle = true;
         }
-    }*/
+    }
 }
 
 /*enum Pitch {
@@ -183,6 +174,8 @@ public class PitchComparison implements NoteListener{
     Pitch(double pitch){
         pitchBase = pitch;
     }
+
+    // TODO: Do not use this anymore - or find a way to use it differently.
 }*/
 
 

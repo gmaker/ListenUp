@@ -13,6 +13,7 @@ public class PitchMelodyPanel extends JPanel implements ActionListener {
     /** Panels for the Card Layout **/
     private JPanel cards;
     private JPanel mainPanel;
+    private JPanel labelPanel;
     private JPanel pitchTuningPanel;
     private JPanel sightSingingPanel;
 
@@ -31,11 +32,16 @@ public class PitchMelodyPanel extends JPanel implements ActionListener {
 
     public PitchMelodyPanel(){
 
+        setLayout(new BorderLayout());
         cards = new JPanel(new CardLayout());
+        cards.setOpaque(false);
 
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
-        mainPanel.setBackground(Color.BLACK);
+        mainPanel.setOpaque(false);
+
+        labelPanel = new JPanel();
+        labelPanel.setOpaque(false);
 
         pitchTuningButton = new JButton("Pitch Tuning");
         sightSingingButton = new JButton("Sight Singing");
@@ -45,17 +51,18 @@ public class PitchMelodyPanel extends JPanel implements ActionListener {
         pitchTuningPanel = new JPanel();
         sightSingingPanel = new JPanel();
 
-        label = new JLabel("Pitch and Melody");
+        /*label = new JLabel("Pitch and Melody");
         label.setFont(LABELFONT);
         label.add(Box.createRigidArea(new Dimension(0, 50)));
         label.setForeground(Color.YELLOW);
 
+        labelPanel.add(label, BorderLayout.CENTER);*/
         cards.add(mainPanel, "Main Panel");
 
-        setPreferredSize(new Dimension(400, 250));
-        add(label);
+        //setPreferredSize(new Dimension(500, 375));
+        add(labelPanel, BorderLayout.NORTH);
         add(cards);
-        setBackground(Color.BLACK);
+        setOpaque(false);
     }
 
     private void createButton(JButton button, JPanel p){
@@ -65,16 +72,14 @@ public class PitchMelodyPanel extends JPanel implements ActionListener {
         button.setHorizontalAlignment(SwingConstants.LEFT);
         button.setContentAreaFilled(false);
         button.setBorder(BorderFactory.createBevelBorder(0,
-                Color.yellow, Color.black));
+                Color.yellow, new Color(0, 0, 0, 0)));
         setButtonDimension(button, p);
         p.add(button);
     }
 
     private void setButtonDimension(JComponent j, JPanel p){
-        //j.setPreferredSize(new Dimension(100, 50));
-        //j.setMaximumSize(new Dimension(250, 50));
         j.setPreferredSize(j.getPreferredSize());
-        p.add(Box.createRigidArea(new Dimension(0, 15)));
+        p.add(Box.createRigidArea(new Dimension(10, 15)));
     }
 
     private void changeCards(String str){
@@ -86,9 +91,9 @@ public class PitchMelodyPanel extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e){
         String command = e.getActionCommand();
         if(e.getSource() == pitchTuningButton){
-            multiCardChange(command);
+            exerciseFrameCommand(command);
         } else if(e.getSource() == sightSingingButton){
-            multiCardChange(command);
+            exerciseFrameCommand(command);
         }
 
         else {
@@ -96,9 +101,9 @@ public class PitchMelodyPanel extends JPanel implements ActionListener {
         }
     }
 
-    private void multiCardChange(String command){
+    private void exerciseFrameCommand(String command){
         //changeCards(command);
-        //MainWindow.changeMainPanel(command);
+        MainWindow.addExerciseFrame(command);
         System.out.println(command);
     }
 }

@@ -8,7 +8,6 @@ class running implements Runnable {
     private Thread thread;
     private String threadName;
     private FrequencyDetector detector;
-    private boolean bool;
 
     running( String name, FrequencyDetector d) {
         threadName = name;
@@ -16,31 +15,13 @@ class running implements Runnable {
     }
 
     public void run() {
-        try {
-            detector.start();
-            String note = detector.getFinalNote();
-            boolean flag = false;
-            while(!flag){
-                Thread.sleep(1000);
-                if(bool = true){
-                    flag = true;
-                }
-            }
-        } catch (InterruptedException e){
-            System.out.println("Thread " + threadName + " interrupted.");
-        }
+        detector.start();
     }
 
     public void start(){
         if(thread == null){
             thread = new Thread(this, threadName);
             thread.start();
-        }
-    }
-
-    public void stop() {
-        if(thread != null){
-            thread.stop();
         }
     }
 }
@@ -59,9 +40,5 @@ public class MultiThread {
     public void go(){
         thread = new running(threadName, detector);
         thread.start();
-    }
-
-    public void stop(){
-        thread.stop();
     }
 }

@@ -10,6 +10,6 @@ public class Main {
 
         /** create the Main Window **/
         new MainWindow();
-        new CoreController();
+        //new CoreController();
     }
 }

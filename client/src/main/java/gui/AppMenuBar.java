@@ -1,13 +1,9 @@
 package gui;
 
-import Pitches.FrequencyDetector;
-import Pitches.MultiThread;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.security.Key;
 
 /**
  * Created by Sean Murphy on 11/26/2017.
@@ -24,10 +20,6 @@ public class AppMenuBar extends JMenuBar implements ActionListener {
     private JMenuItem frequencyMenuItem;
     private JMenuItem notesMenuItem;
     private JMenuItem stopMenuItem;
-
-    private FrequencyDetector fq = new FrequencyDetector();
-    private MultiThread thread1;
-    private boolean threadBool = false;
 
     /**
      *
@@ -99,29 +91,11 @@ public class AppMenuBar extends JMenuBar implements ActionListener {
         } else if(e.getSource() == aboutMenuItem){
 
         } else if(e.getSource() == frequencyMenuItem){
-            threadController("Frequencies", "go");
+            MainWindow.callCoreCommand("Frequencies");
         } else if(e.getSource() == notesMenuItem){
-            fq.togglePitchComparison();
-            threadController("Notes", "go");
+            MainWindow.callCoreCommand("Notes");
         } else if(e.getSource() == stopMenuItem){
-            threadController("", "stop");
-        }
-    }
-
-    /**
-     * Temporary method to test out stopping the thread
-     */
-    private void threadController(String str, String command){
-        if(threadBool==false) {
-            thread1 = new MultiThread(str, fq);
-        }
-        if(command.equals("go")){
-            thread1.go();
-            threadBool = true;
-        } else if(command.equals("stop")){
-            thread1.stop();
-        } else {
-            System.err.println("ERROR IN ThreadController method");
+            MainWindow.callCoreCommand("Stop");
         }
     }
 }

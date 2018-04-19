@@ -1,34 +1,33 @@
 package gui;
 
-import Pitches.NoteMap;
+import Pitches.CoreController;
+import Pitches.NoteListener;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 
 /**
  * Created by Sean Murphy on 11/25/2017.
  */
-public class MainWindow extends JFrame {
-
-    /** The panel containing notes from the microphone input **/
-    private NotePanel notePanel;
-
-    /** The panel containing buttons for application processes **/
-    private MenuPanel menuPanel;
+public class MainWindow extends JFrame implements NoteListener{
 
     /** Different Exercise Panels **/
     private ScaleIntervalPanel SIPanel;
     private ChordPanel CPanel;
     private RhythmPanel RPanel;
     private PitchMelodyPanel PMPanel;
+    private static ExerciseFrame ex;
+    private Border whiteLine = BorderFactory.createLineBorder(Color.WHITE);
 
     /** Panels for Main Menu Screen **/
     private JPanel mainPanel;
     private JPanel northPanel;
     private JPanel southPanel;
+    private JPanel eastPanel;
 
     /** Creating the Note Map for Pitch to Note comparison **/
-    private NoteMap map;
+    private static CoreController controller;
 
     /** Creating the CardLayout for different menus and exercises **/
     private JPanel cards;
@@ -36,18 +35,18 @@ public class MainWindow extends JFrame {
 
     public MainWindow() {
 
-        setTitle("Ear Training and Sight Singing Application");
+        setTitle("Listen Up!");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        //JLabel emptyLabel = new JLabel();
-        //emptyLabel.setPreferredSize(new Dimension(500, 500));
-
-        map = new NoteMap();
-        map.create("NoteData.txt");
+        controller = new CoreController();
+        controller.addListener(this);
 
         this.setJMenuBar(new AppMenuBar(this));
 
-        cards = new JPanel(new CardLayout());
+        JLabel contentPane = new JLabel(new ImageIcon("mic.jpg"));
+        add(contentPane);
+        contentPane.setLayout(new BorderLayout());
+
         mainPanel = new JPanel(new BorderLayout());
 
         SIPanel = new ScaleIntervalPanel();
@@ -55,38 +54,40 @@ public class MainWindow extends JFrame {
         RPanel = new RhythmPanel();
         PMPanel = new PitchMelodyPanel();
 
-        northPanel = new JPanel(new BorderLayout());
-        northPanel.add(SIPanel, BorderLayout.WEST);
-        northPanel.add(CPanel, BorderLayout.EAST);
+        eastPanel = new JPanel();
+        eastPanel.setLayout(new BoxLayout(eastPanel, BoxLayout.Y_AXIS));
+        eastPanel.add(SIPanel);
+        eastPanel.add(CPanel);
+        eastPanel.add(RPanel);
+        eastPanel.add(PMPanel);
+        eastPanel.setOpaque(false);
 
-        southPanel = new JPanel(new BorderLayout());
-        southPanel.add(RPanel, BorderLayout.WEST);
-        southPanel.add(PMPanel, BorderLayout.EAST);
+        contentPane.add(eastPanel, BorderLayout.WEST);
 
-        mainPanel.add(northPanel, BorderLayout.NORTH);
-        mainPanel.add(southPanel, BorderLayout.SOUTH);
+        this.add(contentPane);
 
-        cards.add(mainPanel, BorderLayout.CENTER);
-
-
-        /*menuPanel = new MenuPanel();
-
-        cards = new JPanel(new BorderLayout());
-        cards.add(menuPanel, BorderLayout.CENTER);
-        */
-        this.add(cards);
-
-        setSize(new Dimension(800, 550));
         pack();
+        setResizable(true);
         setLocationRelativeTo(null);
         setVisible(true);
     }
 
     /**
-     * Method to change the cards of the MainWindow
+     * Method to create Exercise Frame for exercises
      * Called from sub-panel classes
      */
-    public static void changeMainPanel(String str){
+    public static void addExerciseFrame(String str){
         System.out.println("Change Main Panel " + str);
+        ex = new ExerciseFrame(str);
+    }
+
+    public static void callCoreCommand(String str) {
+        controller.callAction(str);
+    }
+
+    @Override
+    public void noteChanged(String note, float pitch) {
+        //System.out.println("noteChanged in MainWindow: " + note + " " + pitch);
+        ex.noteChanged(note, pitch);
     }
 }

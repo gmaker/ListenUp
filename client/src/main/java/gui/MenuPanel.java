@@ -8,6 +8,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**TODO: DELETE THIS FILE - IT IS NOW OBSOLETE **/
+
 /**
  * Created by Sean Murphy on 11/27/2017.
  */
@@ -34,7 +36,7 @@ public class MenuPanel extends JPanel implements ActionListener{
             "Arial", Font.PLAIN, 25);
 
     /** Temporary fix - please debug and use CoreController instead **/
-    private FrequencyDetector fq = new FrequencyDetector();
+    //private FrequencyDetector fq = new FrequencyDetector();
 
     public MenuPanel() {
 
@@ -100,12 +102,12 @@ public class MenuPanel extends JPanel implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == frequencyButton){
-            MultiThread thread1 = new MultiThread("Frequencies", fq);
-            thread1.go();
+            //MultiThread thread1 = new MultiThread("Frequencies", fq);
+            //thread1.go();
         } else if(e.getSource() == noteButton){
-            fq.togglePitchComparison();
-            MultiThread thread2 = new MultiThread("Notes", fq);
-            thread2.go();
+            //fq.togglePitchComparison();
+            //MultiThread thread2 = new MultiThread("Notes", fq);
+            //thread2.go();
         } else if(e.getSource() == rhythmButton){
             NotePanel.appendTextArea("hello");
         } else {

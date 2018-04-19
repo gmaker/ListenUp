@@ -8,12 +8,15 @@ import java.util.Scanner;
 /**
  * Created by Sean Murphy on 11/26/2017.
  */
+
 public class NoteMap{
 
     private static NoteMap n;
-    private ArrayList<String> notes;
+    private ArrayList<String> notesFlat;
+    private ArrayList<String> notesSharp;
     private float[][] pitchArray;
     private final int PITCHRANGE = 4;
+    private final int NOTEAMOUNT = 12;
 
     public NoteMap(){
         n = this;
@@ -21,7 +24,8 @@ public class NoteMap{
 
     public static NoteMap getNoteMap() {return n;}
     public float[][] getPitchArray() {return pitchArray;}
-    public ArrayList<String> getNotes() {return notes;}
+    public ArrayList<String> getNotesFlat() {return notesFlat;}
+    public ArrayList<String> getNotesSharp() {return notesSharp;}
 
     public void create(String filename){
         try {
@@ -33,19 +37,26 @@ public class NoteMap{
     }
 
     private void createPitchMap(Scanner scan){
-        notes = new ArrayList<>();
+        notesFlat = new ArrayList<>();
+        notesSharp = new ArrayList<>();
         ArrayList<Float> frequencies = new ArrayList<>();
-        int noteAmount = 0, temp = 0;
+        int temp = 0;
         while(scan.hasNext()){
             String s = scan.next();
             if(s.substring(0,1).matches("\\d+")){
                 frequencies.add(Float.parseFloat(s));
             } else {
-                notes.add(s);
-                noteAmount++;
+                if(s.charAt(1)=='F'){
+                    notesFlat.add(s);
+                } else if(s.charAt(1)=='S'){
+                    notesSharp.add(s);
+                } else {
+                    notesFlat.add(s);
+                    notesSharp.add(s);
+                }
             }
         }
-        pitchArray = new float[noteAmount][PITCHRANGE];
+        pitchArray = new float[NOTEAMOUNT][PITCHRANGE];
         for(int i=0; i<pitchArray.length; i++){
             for(int j=0; j<pitchArray[i].length; j++){
                 pitchArray[i][j] = frequencies.get(temp);
