@@ -38,6 +38,8 @@ public class CoreController {
             stopPitchAnalysis();
         } else if(action.equals("flat")){
             pc.setFlatSharpToggle(false);
+        } else if(action.equals("sharp")){
+            pc.setFlatSharpToggle(true);
         }
         /** Actual Methods for Use (include some above) **/
         /*else if(eNum!=-1){

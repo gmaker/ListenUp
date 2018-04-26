@@ -1,20 +1,24 @@
 Scales
-1;Major Scale, Ascending;48;f;CN,DN,EN,FN,GN,AN,BN,CN
-1;Major Scale, Descending;60;f;CN,BN,AN,GN,FN,EN,DN,CN
-1;Major Scale, Ascending;50;s;DN,EN,FS,GN,AN,BN,CS,DN
-1;Major Scale, Descending;62;s;DN,CS,BN,AN,GN,FS,EN,DN
-2;Minor Scale, Ascending;48;f;CN,DN,EF,FN,GN,AF,BF,CN
+1;Major Scale, Ascending;48;f;8;CN,DN,EN,FN,GN,AN,BN,CN
+1;Major Scale, Descending;60;f;8;CN,BN,AN,GN,FN,EN,DN,CN
+1;Major Scale, Ascending;50;s;8;DN,EN,FS,GN,AN,BN,CS,DN
+1;Major Scale, Descending;62;s;8;DN,CS,BN,AN,GN,FS,EN,DN
+2;Minor Scale, Ascending;48;f;8;CN,DN,EF,FN,GN,AF,BF,CN
 Intervals
-1;Perfect Octave, Ascending;48;f;CN,CN
-1;Perfect 5th, Ascending;48f;CN,GN
-1;Perfect 4th, Ascending;48;f;CN,FN
-1;Perfect Octave, Ascending;50;s;DN,DN
-2;Major Third, Ascending;48;f;CN,EN
+1;Perfect Octave, Ascending;48;f;2;CN,CN
+1;Perfect 5th, Ascending;48;f;2;CN,GN
+1;Perfect 4th, Ascending;48;f;2;CN,FN
+1;Perfect Octave, Ascending;50;s;2;DN,DN
+2;Major Third, Ascending;48;f;2;CN,EN
 Chords
-1;C Major, Ascending;f;CN,EN,GN
-1;G Major, Ascending;s;GN,BN,DN
-1;D Major, Ascending;s;DN,FS,AN
-1;F Major, Ascending;f;FN,AN,CN
-2;C Minor, Ascending;f;CN,EF,GN
+1;C Major, Ascending;48;f;3;CN,EN,GN
+1;G Major, Ascending;55;s;3;GN,BN,DN
+1;D Major, Ascending;50;s;3;DN,FS,AN
+1;F Major, Ascending;53;f;3;FN,AN,CN
+2;C Minor, Ascending;48;f;3;CN,EF,GN
 Tetrachords
-1;Major Tetrachord, Ascending;f;CN,DN,EN,FN;
+1;Major Tetrachord, Ascending;48;f;4;CN,DN,EN,FN
+1;Major Tetrachord, Ascending;50;s;4;DN,EN,FS,GN
+1;Major Tetrachord, Ascending;53;f;4;FN,GN,AN,BF
+1;Major Tetrachord, Ascending;55;s;4;GN,AN,BN,CN
+2;Minor Tetrachord, Ascending;48;f;4;CN,DN,EF,FN

@@ -1,8 +1,6 @@
 package gui;
 
-import Pitches.CoreController;
 import Pitches.ExerciseData;
-import Pitches.NoteListener;
 import Pitches.ExerciseCalc;
 
 import javax.swing.*;
@@ -21,6 +19,11 @@ public class ExerciseFrame extends JFrame implements ActionListener {
     private String command;
     private int exerciseNumR;
     private int noteNumber;
+    private int circleNum;
+    private int circleNumFill = 0;
+    private int noteCount = 0;
+    private String exerciseNotes;
+    private int exerciseNoteAmount;
 
     /**  **/
     private ArrayList<String> exerciseData;
@@ -30,6 +33,7 @@ public class ExerciseFrame extends JFrame implements ActionListener {
     private JPanel mainPanel;
     private JPanel buttonPanel;
     private JPanel exerciseNameLabel;
+    private CirclePanel circlePanel;
 
     /**  **/
     private JLabel instructionLabel;
@@ -88,6 +92,10 @@ public class ExerciseFrame extends JFrame implements ActionListener {
 
         createExerciseInformation();
 
+        circlePanel = new CirclePanel(circleNum);
+        circlePanel.setSize(400, 100);
+        mainPanel.add(circlePanel, BorderLayout.SOUTH);
+
         add(mainPanel);
         add(buttonPanel, BorderLayout.SOUTH);
 
@@ -97,7 +105,7 @@ public class ExerciseFrame extends JFrame implements ActionListener {
         setResizable(false);
         setVisible(true);
 
-        ec = new ExerciseCalc();
+        ec = new ExerciseCalc(exerciseNoteAmount);
     }
 
     private void createButton(JButton button, JPanel p){
@@ -137,7 +145,12 @@ public class ExerciseFrame extends JFrame implements ActionListener {
         noteNumber = Integer.parseInt(e.get(2));
         if(e.get(3).equals("f")){
             MainWindow.callCoreCommand("flat");
+        } else {
+            MainWindow.callCoreCommand("sharp");
         }
+        circleNum = Integer.parseInt(e.get(4));
+        exerciseNoteAmount = circleNum;
+        exerciseNotes = e.get(5);
     }
 
     private void getRandomNumber(){
@@ -147,8 +160,7 @@ public class ExerciseFrame extends JFrame implements ActionListener {
 
     private void setPanelText(){
         String rephrase = null;
-        System.out.println(command + " " + command.length());
-        if(command != null && command.length() > 1){
+        if(command != null && command.length() > 1 && command.charAt(command.length()-1)=='s'){
             rephrase = command.substring(0, command.length() - 1);
         }
         instructionLabel.setText("Sing the " + rephrase + ".");
@@ -157,19 +169,47 @@ public class ExerciseFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == startButton){
+            noteCount = 0;
             startButton.setText("Listening..");
+            startButton.setEnabled(false);
             MainWindow.callCoreCommand("Notes");
             ec.playNote(noteNumber);
-            ec.startTimer();
+
         } else if(e.getSource() == replayButton){
             startButton.setText("Start");
+            startButton.setEnabled(true);
             MainWindow.callCoreCommand("Stop");
-            ec.reportNotes();
+            //ec.reportNotes();
+            ec.restart();
         }
     }
 
+    private void updateCircles(){
+        circlePanel.setNumCircleFill(circleNumFill);
+        circlePanel.repaint();
+        circlePanel.setBackground(Color.WHITE);
+        circleNumFill++;
+    }
+
     public void noteChanged(String note, float pitch) {
-        //System.out.println("noteChanged in ExerciseFrame: " + note + " " + pitch);
-        ec.addNote(note);
+        System.out.println("noteChanged in ExerciseFrame: " + note + " " + pitch);
+        int temp = ec.addNote(note, noteCount);
+        if(temp==1){
+            noteCount++;
+        } else if(temp==0){
+            updateCircles();
+        } else if(temp==2){
+            exerciseNoteComparison();
+        }
+    }
+
+    private void exerciseNoteComparison(){
+        MainWindow.callCoreCommand("Stop");
+        boolean result = ec.reportNotes(exerciseNotes);
+        if(result){
+            new ResponseFrame("success");
+        } else {
+            new ResponseFrame("fail");
+        }
     }
 }

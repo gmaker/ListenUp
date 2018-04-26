@@ -4,7 +4,6 @@ import Pitches.CoreController;
 import Pitches.NoteListener;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 
 /**
@@ -18,19 +17,12 @@ public class MainWindow extends JFrame implements NoteListener{
     private RhythmPanel RPanel;
     private PitchMelodyPanel PMPanel;
     private static ExerciseFrame ex;
-    private Border whiteLine = BorderFactory.createLineBorder(Color.WHITE);
 
     /** Panels for Main Menu Screen **/
-    private JPanel mainPanel;
-    private JPanel northPanel;
-    private JPanel southPanel;
     private JPanel eastPanel;
 
     /** Creating the Note Map for Pitch to Note comparison **/
     private static CoreController controller;
-
-    /** Creating the CardLayout for different menus and exercises **/
-    private JPanel cards;
 
 
     public MainWindow() {
@@ -46,8 +38,6 @@ public class MainWindow extends JFrame implements NoteListener{
         JLabel contentPane = new JLabel(new ImageIcon("mic.jpg"));
         add(contentPane);
         contentPane.setLayout(new BorderLayout());
-
-        mainPanel = new JPanel(new BorderLayout());
 
         SIPanel = new ScaleIntervalPanel();
         CPanel = new ChordPanel();
@@ -87,7 +77,8 @@ public class MainWindow extends JFrame implements NoteListener{
 
     @Override
     public void noteChanged(String note, float pitch) {
-        //System.out.println("noteChanged in MainWindow: " + note + " " + pitch);
-        ex.noteChanged(note, pitch);
+        if(pitch!=81.818184f) {
+            ex.noteChanged(note, pitch);
+        }
     }
 }
