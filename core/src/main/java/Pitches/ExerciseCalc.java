@@ -16,15 +16,15 @@ public class ExerciseCalc {
     }
 
     public int addNote(String note, int numNotes){
-        if(noteCount==15){
+        if(noteCount==8){
             noteArray[numNotes][noteCount] = note;
             noteCount++;
             return 0;
-        } else if(noteCount>15 && !note.equals(noteArray[numNotes][noteCount-1])){
+        } else if(noteCount>8 && !note.equals(noteArray[numNotes][noteCount-1])){
             noteCount = 0;
             System.out.println("" + numNotes%noteArray.length);
             return 1;
-        } else if(noteCount>15 && noteArray.length-numNotes==1){
+        } else if(noteCount>8 && noteArray.length-numNotes==1){
             return 2;
         } else {
             System.out.printf("Adding %s to array at %s and %s\n", note, numNotes, noteCount);
@@ -46,7 +46,7 @@ public class ExerciseCalc {
         System.out.println(noteCount);
         for(int i=0; i<count; i++){
             ArrayList<String> notesSung = new ArrayList<>();
-            for(int j=0; j<15; j++) {
+            for(int j=0; j<8; j++) {
                 notesSung.add(noteArray[i][j]);
             }
             String temp = getAverageNote(notesSung);

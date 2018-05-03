@@ -1,24 +1,117 @@
 Scales
-1;Major Scale, Ascending;48;f;8;CN,DN,EN,FN,GN,AN,BN,CN
-1;Major Scale, Descending;60;f;8;CN,BN,AN,GN,FN,EN,DN,CN
-1;Major Scale, Ascending;50;s;8;DN,EN,FS,GN,AN,BN,CS,DN
-1;Major Scale, Descending;62;s;8;DN,CS,BN,AN,GN,FS,EN,DN
-2;Minor Scale, Ascending;48;f;8;CN,DN,EF,FN,GN,AF,BF,CN
+1;20
+1;C Major Scale: Ascending;48;f;8;CN,DN,EN,FN,GN,AN,BN,CN
+1;D Major Scale: Ascending;50;s;8;DN,EN,FS,GN,AN,BN,CS,DN
+1;E Major Scale: Ascending;52;s;8;EN,FS,GS,AN,BN,CS,DS,EN
+1;F Major Scale: Ascending;53;f;8;FN,GN,AN,BF,CN,DN,EN,FN
+1;G Major Scale: Ascending;55;s;8;GN,AN,BN,CN,DN,EN,FS,GN
+1;A Major Scale: Ascending;57;s;8;AN,BN,CS,DN,EN,FS,GS,AN
+1;Bf Major Scale: Ascending;58;f;8;BF,CN,DN,EF,FN,GN,AN,BF
+1;C Melodic Minor Scale: Ascending;48;f;8;CN,DN,EF,FN,GN,AN,BN,CN
+1;D Melodic Minor Scale: Ascending;50;s;8;DN,EN,FN,GN,AN,BN,CS,DN
+1;G Melodic Minor Scale: Ascending;55;f;8;GN,AN,BF,CN,DN,EN,GF,GN
+1;A Melodic Minor Scale: Ascending;57;s;8;AN,BN,CN,DN,EN,FS,GS,AN
+1;Bf Melodic Minor Scale: Ascending;58;f;8;BF,CN,DF,EF,FN,GN,AN,BF
+1;Ef Melodic Minor Scale: Ascending;51;f;8;EF,FN,GF,AF,BF,CN,DN,EF
+1;C Harmonic Minor Scale: Ascending;48;f;8;CN,DN,EF,FN,GN,AF,BN,CN
+1;D Harmonic Minor Scale: Ascending;50;f;8;DN,EN,FN,GN,AN,BF,DF,DN
+1;E Harmonic Minor Scale: Ascending;52;s;8;EN,FS,GN,AN,BN,CN,DS,EN
+1;F Harmonic Minor Scale: Ascending;53;f;8;FN,GN,AF,BF,CN,DF,EN,FN
+1;G Harmonic Minor Scale: Ascending;55;f;8;GN,AN,BF,CN,DN,EF,GF,GN
+1;A Harmonic Minor Scale: Ascending;57;s;8;AN,BN,CN,DN,EN,FN,GS,AN
+1;B Harmonic Minor Scale: Ascending;59;s;8;BN,CS,DN,EN,FS,GN,AS,BN
+2;20
+2;C Major Scale: Ascending;48;f;8;CN,DN,EN,FN,GN,AN,BN,CN
+2;E Major Scale: Ascending;52;s;8;EN,FS,GS,AN,BN,CS,DS,EN
+2;Af Major Scale: Ascending;56;f;8;AF,BF,CN,DF,EF,FN,GN,AF
+2;E Melodic Minor Scale: Ascending;52;s;8;EN,FS,GN,AN,BN,CS,DS,EN
+2;G Melodic Minor Scale: Ascending;55;f;8;GN,AN,BF,CN,DN,EN,GF,GN
+2;B Melodic Minor Scale: Ascending;59;s;8;BN,CS,DN,EN,FS,GS,AS,BN
+2;D Harmonic Minor Scale: Ascending;50;f;8;DN,EN,FN,GN,AN,BF,DF,DN
+2;A Harmonic Minor Scale: Ascending;57;s;8;AN,BN,CN,DN,EN,FN,GS,AN
+2;Fs Harmonic Minor Scale: Ascending;54;s;8;FS,GS,AN,BN,CS,DN,FN,FS
+2;C Lydian Scale: Ascending;48;s;8;CN,DN,EN,FS,GN,AN,BN,CN
+2;D Lydian Scale: Ascending;50;s;8;DN,EN,FS,GS,AN,BN,CS,DN
+2;F Lydian Scale: Ascending;53;f;8;FN,GN,AN,BN,CN,DN,EN,FN
+2;G Lydian Scale: Ascending;55;s;8;GN,AN,BN,CS,DN,EN,FS,GN
+2;D Mixolydian Scale: Ascending;50;s;8;DN,EN,FS,GN,AN,BN,CN,DN
+2;F Mixolydian Scale: Ascending;53;f;8;FN,GN,AN,BF,CN,DN,EF,FN
+2;A Mixolydian Scale: Ascending;57;s;8;AN,BN,CS,DN,EN,FN,GN,AN
+2;B Mixolydian Scale: Ascending;59;s;8;BN,CS,DS,EN,FS,GS,AN,BN
+2;C Aoelian Scale: Ascending;48;f;8;CN,DN,EF,FN,GN,AF,BF,CN
+2;E Aoelian Scale: Ascending;52;s;8;EN,FS,GN,AN,BN,CN,DN,EN
+2;Af Aoelian Scale: Ascending;56;f;8;AF,BF,BN,DF,EF,EN,GF,AF
+3;20
+3;E Major Scale: Ascending;52;s;8;EN,FS,GS,AN,BN,CS,DS,EN
+3;Af Major Scale: Ascending;56;f;8;AF,BF,CN,DF,EF,FN,GN,AF
+3;D Melodic Minor Scale: Ascending;50;s;8;DN,EN,FN,GN,AN,BN,CS,DN
+3;G Melodic Minor Scale: Ascending;55;f;8;GN,AN,BF,CN,DN,EN,GF,GN
+3;C Harmonic Minor Scale: Ascending;48;f;8;CN,DN,EF,FN,GN,AF,BN,CN
+3;F Harmonic Minor Scale: Ascending;53;f;8;FN,GN,AF,BF,CN,DF,EN,FN
+3;E Lydian Scale: Ascending;52;s;8;EN,FS,GS,AS,BN,CS,DS,EN
+3;A Lydian Scale: Ascending;57;s;8;AN,BN,CS,DS,EN,FS,GS,AN
+3;C Mixolydian Scale: Ascending;48;f;8;CN,DN,EN,FN,GN,AN,BF,CN
+3;G Mixolydian Scale: Ascending;55;s;8;GN,AN,BN,CN,DN,EN,FN,GN
+3;D Aoelian Scale: Ascending;50;f;8;DN,EN,FN,GN,AN,BF,CN,DN
+3;G Aoelian Scale: Ascending;55;f;8;GN,AN,BF,CN,DN,EF,FN,GN
+3;D Dorian Scale: Ascending;50;f;8;DN,EN,FN,GN,AN,BN,CN,DN
+3;A Dorian Scale: Ascending;57;s;8;AN,BN,CN,DN,EN,FS,GN,AN
+3;C Phrygian Scale: Ascending;48;f;8;CN,DF,EF,FN,GN,AF,BF,CN
+3;E Phrygian Scale: Ascending;52;f;8;EN,FN,GN,AN,BN,CN,DN,EN
+3;Bf Phrygian Scale: Ascending;58;f;8;BF,BN,DF,EF,FN,GF,AF,BF
+3;D Locrian Scale: Ascending;50;f;8;DN,EF,FN,GN,AF,BF,CN,DN
+3;F Locrian Scale: Ascending;53;f;8;FN,GF,AF,BF,BN,DF,EF,FN
+3;B Locrian Scale: Ascending;59;f;8;BN,CN,DN,EN,FN,GN,AN,BN
+4;20
+4;G Major Scale: Ascending;55;s;8;GN,AN,BN,CN,DN,EN,FS,GN
+4;Bf Melodic Minor Scale: Ascending;58;f;8;BF,CN,DF,EF,FN,GN,AN,BF
+4;B Harmonic Minor Scale: Ascending;59;s;8;BN,CS,DN,EN,FS,GN,AS,BN
+4;C Lydian Scale: Ascending;48;s;8;CN,DN,EN,FS,GN,AN,BN,CN
+4;E Mixolydian Scale: Ascending;52;s;8;EN,FS,GS,AN,BN,CS,DN,EN
+4;F Aoelian Scale: Ascending;53;f;8;FN,GN,AF,BF,CN,DF,EF,FN
+4;G Dorian Scale: Ascending;55;f;8;GN,AN,BF,CN,DN,EN,FN,GN
+4;Ef Dorian Scale: Ascending;51;f;8;EF,FN,GF,AF,BF,CN,DF,EF
+4;D Phrygian Scale: Ascending;50;f;8;DN,EF,FN,GF,AF,BF,CN,DF
+4;G Phrygian Scale: Ascending;55;f;8;GN,AF,BF,CN,DN,EF,FN,GN
+4;C Locrian Scale: Ascending;48;f;8;CN,DF,EF,FN,GF,AF,BF,CN
+4;A Locrian Scale: Ascending;57;f;8;AN,BF,CN,DN,EF,FN,GN,AN
+4;C Pentatonic Scale: Ascending;48;f;6;CN,DN,EN,GN,AN,CN
+4;F Pentatonic Scale: Ascending;53;f;6;FN,GN,AN,CN,DN,FN
+4;D Minor Pentatonic Scale: Ascending;50;f;6;DN,FN,GN,AN,CN,DN
+4;G Minor Pentatonic Scale: Ascending;55;f;6;GN,BF,CN,DN,FN,GN
+4;B Minor Pentatonic Scale: Ascending;59;s;6;BN,DN,EN,FS,AN,BN
+4;C Blues Scale: Ascending;48;f;7;CN,EF,FN,GF,GN,BF,CN
+4;A Blues Scale: Ascending;57;f;7;AN,CN,DN,EF,EN,GN,AN
+4;Ef Blues Scale: Ascending;51;f;7;EF,GF,AF,AN,BF,DF,EF
 Intervals
+1;04
 1;Perfect Octave, Ascending;48;f;2;CN,CN
 1;Perfect 5th, Ascending;48;f;2;CN,GN
 1;Perfect 4th, Ascending;48;f;2;CN,FN
 1;Perfect Octave, Ascending;50;s;2;DN,DN
+2;01
 2;Major Third, Ascending;48;f;2;CN,EN
 Chords
+1;04
 1;C Major, Ascending;48;f;3;CN,EN,GN
 1;G Major, Ascending;55;s;3;GN,BN,DN
 1;D Major, Ascending;50;s;3;DN,FS,AN
 1;F Major, Ascending;53;f;3;FN,AN,CN
+2;1
 2;C Minor, Ascending;48;f;3;CN,EF,GN
 Tetrachords
+1;04
 1;Major Tetrachord, Ascending;48;f;4;CN,DN,EN,FN
 1;Major Tetrachord, Ascending;50;s;4;DN,EN,FS,GN
 1;Major Tetrachord, Ascending;53;f;4;FN,GN,AN,BF
 1;Major Tetrachord, Ascending;55;s;4;GN,AN,BN,CN
+2;01
 2;Minor Tetrachord, Ascending;48;f;4;CN,DN,EF,FN
+EXTRA
+1;E Major Scale: Ascending;52;s;8;EN,FS,GS,AN,BN,CS,DS,EN
+1;Bf Major Scale: Ascending;58;f;8;BF,CN,DN,EF,FN,GN,AN,BF
+1;Ef Major Scale: Ascending;51;f;8;EF,FN,GN,AF,BF,CN,DN,EF
+2;Df Major Scale: Ascending;49;f;8;DF,EF,FN,GF,AF,BF,CN,DF
+1;B Harmonic Minor Scale: Ascending;59;s;8;BN,CS,DN,EN,FS,GN,AS,BN
+1;A Harmonic Minor Scale: Ascending;57;s;8;AN,BN,CN,DN,EN,FN,GS,AN
+2;Bf Harmonic Minor Scale: Ascending;58;f;8;BF,CN,DF,EF,FN,GF,AF,BF

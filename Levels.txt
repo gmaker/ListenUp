@@ -1,0 +1,30 @@
+Scales
+6
+Level 1;Level 2;Level 3;Level 4;Level 5;Level 6
+Major, harmonic minor, and melodic minor scales - ascending
+Major, harmonic minor, melodic minor, aeolian, lydian, and mixolydian scales - ascending
+Major, harmonic minor, melodic minor, aeolian, lydian, mixolydian, dorian, phrygian, and locrian scales - ascending
+Major, harmonic minor, melodic minor, aeolian, lydian, mixolydian, dorian, phrygian, locrian, pentatonic, minor pentatonic, blues scales - ascending
+Major, harmonic minor, melodic minor, aeolian, lydian, mixolydian, dorian, phrygian, locrian, pentatonic, minor pentatonic, blues scales, chromatic, and wholetone scales - ascending
+Major, harmonic minor, melodic minor, aeolian, lydian, mixolydian, dorian, phrygian, locrian, pentatonic, minor pentatonic, blues scales, chromatic, and wholetone scales - descending
+Intervals
+4
+Level 1;Level 2;Level 3;Level 4
+Perfect 4ths, 5ths, 8ves - ascending and descending
+Perfect 4ths, 5ths, 8ves, Major 2nds, 3rds - ascending and descending
+Perfect 4ths, 5ths, 8ves, Major 2nds, 3rds, Minor 2nds, 3rds, Tritones - ascending and descending
+Perfect 4ths, 5ths, 8ves, Major 2nds, 3rds, 6ths, 7ths, Minor 2nds, 3rds, 6ths, 7ths, Tritones - ascending and descending
+Chords
+4
+Level 1;Level 2;Level 3;Level 4
+Major - root position, Minor - root position, to be sung ascending and descending
+Major - all inversions, Minor - all inversions, to be sung ascending and descending
+Major - all inversions, Minor - all inversions, Dominant 7th - all inversions, to be sung ascending and descending
+Major - all inversions, Minor - all inversions, Dominant 7th - all inversions, Diminished, Augmented, to be sung ascending and descending
+Tetrachords
+3
+Level 1;Level 2;Level 3
+Major, Minor - ascending and descending
+Major, Minor, Phrygian - ascending and descending
+Major, Minor, Phrygian, Lydian - ascending and descending
+

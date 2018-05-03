@@ -73,8 +73,4 @@ public class ScaleIntervalPanel extends JPanel implements ActionListener{
         MainWindow.addExerciseFrame(command);
         System.out.println(command);
     }
-
-    public void noteChanged(String note, float pitch){
-        System.out.println("noteChanged in SIPanel: "+note+" "+pitch);
-    }
 }

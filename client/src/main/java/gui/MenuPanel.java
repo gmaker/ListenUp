@@ -1,8 +1,5 @@
 package gui;
 
-import Pitches.FrequencyDetector;
-import Pitches.MultiThread;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

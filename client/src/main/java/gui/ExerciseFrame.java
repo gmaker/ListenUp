@@ -17,6 +17,7 @@ public class ExerciseFrame extends JFrame implements ActionListener {
 
     /**  **/
     private String command;
+    private int level;
     private int exerciseNumR;
     private int noteNumber;
     private int circleNum;
@@ -52,9 +53,10 @@ public class ExerciseFrame extends JFrame implements ActionListener {
             "Arial", Font.PLAIN, 15);
 
 
-    public ExerciseFrame(String c){
+    public ExerciseFrame(String c, int l){
 
         command = c;
+        level = l;
         setTitle(command + " Exercise");
 
         mainPanel = new JPanel(new GridLayout(5, 1, 10, 0));
@@ -91,10 +93,8 @@ public class ExerciseFrame extends JFrame implements ActionListener {
         createLabel(guideLabel, mainPanel);
 
         createExerciseInformation();
-
         circlePanel = new CirclePanel(circleNum);
-        circlePanel.setSize(400, 100);
-        mainPanel.add(circlePanel, BorderLayout.SOUTH);
+        createCirclePanel();
 
         add(mainPanel);
         add(buttonPanel, BorderLayout.SOUTH);
@@ -106,6 +106,12 @@ public class ExerciseFrame extends JFrame implements ActionListener {
         setVisible(true);
 
         ec = new ExerciseCalc(exerciseNoteAmount);
+    }
+
+    private void createCirclePanel(){
+
+        circlePanel.setSize(400, 100);
+        mainPanel.add(circlePanel, BorderLayout.SOUTH);
     }
 
     private void createButton(JButton button, JPanel p){
@@ -129,8 +135,9 @@ public class ExerciseFrame extends JFrame implements ActionListener {
 
     private void createExerciseInformation(){
         setPanelText();
-        exerciseData = ExerciseData.getData(command, 1);
-        getRandomNumber();
+        exerciseData = ExerciseData.getData(command, level);
+        String numExercises = exerciseData.get(0);
+        getRandomNumber(numExercises);
         parseExerciseData();
     }
 
@@ -140,7 +147,6 @@ public class ExerciseFrame extends JFrame implements ActionListener {
         for(String temp : exercise.split(";")){
             e.add(temp);
         }
-        System.out.println(exerciseNumR);
         exerciseName.setText(e.get(1));
         noteNumber = Integer.parseInt(e.get(2));
         if(e.get(3).equals("f")){
@@ -153,9 +159,10 @@ public class ExerciseFrame extends JFrame implements ActionListener {
         exerciseNotes = e.get(5);
     }
 
-    private void getRandomNumber(){
+    private void getRandomNumber(String numExercises){
         Random r = new Random();
-        exerciseNumR = r.nextInt(4);
+        int n = Integer.parseInt(numExercises.substring(2,4));
+        exerciseNumR = r.nextInt(n);
     }
 
     private void setPanelText(){
@@ -163,31 +170,40 @@ public class ExerciseFrame extends JFrame implements ActionListener {
         if(command != null && command.length() > 1 && command.charAt(command.length()-1)=='s'){
             rephrase = command.substring(0, command.length() - 1);
         }
-        instructionLabel.setText("Sing the " + rephrase + ".");
+        assert rephrase != null;
+            rephrase = rephrase.toLowerCase();
+        if(command.equals("Intervals")) {
+            instructionLabel.setText("Sing the " + rephrase + ".");
+        } else {
+            instructionLabel.setText("Sing the " + rephrase + " from the given note.");
+        }
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == startButton){
-            noteCount = 0;
-            startButton.setText("Listening..");
-            startButton.setEnabled(false);
-            MainWindow.callCoreCommand("Notes");
-            ec.playNote(noteNumber);
-
+            startExercise();
         } else if(e.getSource() == replayButton){
             startButton.setText("Start");
             startButton.setEnabled(true);
             MainWindow.callCoreCommand("Stop");
-            //ec.reportNotes();
             ec.restart();
+            this.remove(mainPanel);
+            createCirclePanel();
         }
+    }
+
+    private void startExercise(){
+        noteCount = 0;
+        startButton.setText("Listening..");
+        startButton.setEnabled(false);
+        MainWindow.callCoreCommand("Notes");
+        ec.playNote(noteNumber);
     }
 
     private void updateCircles(){
         circlePanel.setNumCircleFill(circleNumFill);
         circlePanel.repaint();
-        circlePanel.setBackground(Color.WHITE);
         circleNumFill++;
     }
 
@@ -212,4 +228,23 @@ public class ExerciseFrame extends JFrame implements ActionListener {
             new ResponseFrame("fail");
         }
     }
+
+    /*@Override
+    public void keyTyped(KeyEvent e) {
+        System.out.println("Key typed");
+        if(e.getKeyCode()==KeyEvent.VK_SPACE){
+            System.out.println("space pressed");
+            startExercise();
+        }
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        System.out.println("key pressed");
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        System.out.println("key released");
+    }*/
 }

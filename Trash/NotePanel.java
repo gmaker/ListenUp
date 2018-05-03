@@ -1,4 +1,3 @@
-package gui;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,7 +10,7 @@ import Pitches.*;
  */
 public class NotePanel extends JPanel implements NoteListener {
 
-    private static NotePanel np;
+    //private static NotePanel np;
     private String n;
     private static JTextArea textArea;
 

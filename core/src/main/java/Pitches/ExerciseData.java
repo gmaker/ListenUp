@@ -12,21 +12,23 @@ public class ExerciseData {
 
     private final String FILENAME = "ExerciseData.txt";
     private static ArrayList<String> data;
-
+    private Scanner scan;
 
     public ExerciseData() {
         try {
-            Scanner scan = new Scanner(new File(FILENAME));
+            scan = new Scanner(new File(FILENAME));
             createDataList(scan);
         } catch(IOException e){
             e.printStackTrace();
+        } finally {
+            scan.close();
         }
     }
 
-    private void createDataList(Scanner scan){
+    private void createDataList(Scanner scanner){
         data = new ArrayList<>();
-        while(scan.hasNextLine()){
-            String s = scan.nextLine();
+        while(scanner.hasNextLine()){
+            String s = scanner.nextLine();
             data.add(s);
         }
         System.out.println("exercise data created");
@@ -55,9 +57,9 @@ public class ExerciseData {
                     int tempNum = Character.getNumericValue(data.get(j).charAt(0));
                     if(tempNum==level) {
                         tempData.add(data.get(j));
-                    } else {
+                    } /*else {
                         j=data.size();
-                    }
+                    }*/
                 }
             }
         }

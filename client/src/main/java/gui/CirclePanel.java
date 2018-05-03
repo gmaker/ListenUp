@@ -10,9 +10,11 @@ public class CirclePanel extends JPanel{
 
     private int numCircle;
     private int numCircleFill = -1;
+    private int[] fillArray;
 
     public CirclePanel(int num){
         numCircle = num;
+        fillArray = new int[num];
     }
 
     public void paintComponent(Graphics g){
@@ -21,10 +23,16 @@ public class CirclePanel extends JPanel{
         for(int i=0; i<numCircle; i++) {
             int x = (i*35)+10;
             g.drawOval(x, 20, 25, 25);
+            //g.fillOval(x, 20, 25, 25);
         }
         if(numCircleFill != -1){
+            g.setColor(Color.BLUE);
             int temp = (numCircleFill*35)+10;
-            g.fillOval(temp, 20, 25, 25);
+            fillArray[numCircleFill] = temp;
+            for(int k=0; k<fillArray.length; k++) {
+                if(fillArray[k]!=0)
+                    g.fillOval(fillArray[k], 20, 26, 26);
+            }
             numCircleFill = -1;
         }
     }

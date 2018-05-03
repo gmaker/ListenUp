@@ -17,7 +17,7 @@ public class ResponseFrame extends JFrame implements ActionListener{
     private JPanel mainPanel;
     private JPanel buttonPanel;
     private JLabel label;
-    private JButton button1, button2;
+    private JButton button1, button2, button3;
 
     /**  **/
     private final Font LABELFONT = new Font(
@@ -39,9 +39,9 @@ public class ResponseFrame extends JFrame implements ActionListener{
         add(mainPanel);
         add(buttonPanel, BorderLayout.SOUTH);
 
-        setSize(new Dimension(300, 350));
+        setSize(new Dimension(400, 350));
         setLocationRelativeTo(null);
-        setResizable(false);
+        //setResizable(false);
         setVisible(true);
     }
 
@@ -53,7 +53,6 @@ public class ResponseFrame extends JFrame implements ActionListener{
                     "Please move on to the next note in the exercise!</p></html>");
             mainPanel.setBackground(Color.BLUE);
             buttonPanel.setBackground(Color.BLUE);
-            //button1 = new JButton("OK");
             addButton1(button1, "OK");
         } else if(response.equals("success")){
             this.setTitle("Correct!");
@@ -61,7 +60,6 @@ public class ResponseFrame extends JFrame implements ActionListener{
                     "Good job! You passed the exercise!<br>On to the next one!</p></html>");
             mainPanel.setBackground(Color.GREEN);
             buttonPanel.setBackground(Color.GREEN);
-            //button1 = new JButton("I'm Ready");
             addButton1(button1, "I'm ready");
         } else if(response.equals("fail")){
             this.setTitle("Wrong");
@@ -69,10 +67,11 @@ public class ResponseFrame extends JFrame implements ActionListener{
                     "You got the exercise wrong.<br>Would you like to try again?</p></html>");
             mainPanel.setBackground(Color.RED);
             buttonPanel.setBackground(Color.RED);
-            button1 = new JButton("Try Again");
-            button2 = new JButton("Move On");
-            //addButton1(button1, "Try Again");
+            //button1 = new JButton("Try Again");
+            //button2 = new JButton("Move On");
+            addButton1(button1, "Try Again");
             addButton2(button2, "Move On");
+            addButton2(button3, "See Results");
         }
         //addButton(button1, button2);
     }
@@ -84,7 +83,7 @@ public class ResponseFrame extends JFrame implements ActionListener{
     }
 
     private void addButton2(JButton b2, String text){
-        System.out.println("creating button2" + this.getTitle());
+        System.out.println("creating button2 " + text);
         b2 = new JButton(text);
         createButton(b2);
         buttonPanel.add(Box.createRigidArea(new Dimension(10, 0)));
@@ -112,5 +111,7 @@ public class ResponseFrame extends JFrame implements ActionListener{
 
     public static void main(String[] args){
         new ResponseFrame("success");
+        new ResponseFrame("fail");
+        new ResponseFrame("warning");
     }
 }

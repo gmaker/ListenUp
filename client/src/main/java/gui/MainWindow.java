@@ -17,6 +17,7 @@ public class MainWindow extends JFrame implements NoteListener{
     private RhythmPanel RPanel;
     private PitchMelodyPanel PMPanel;
     private static ExerciseFrame ex;
+    private static LevelFrame lf;
 
     /** Panels for Main Menu Screen **/
     private JPanel eastPanel;
@@ -68,7 +69,8 @@ public class MainWindow extends JFrame implements NoteListener{
      */
     public static void addExerciseFrame(String str){
         System.out.println("Change Main Panel " + str);
-        ex = new ExerciseFrame(str);
+        lf = new LevelFrame(str);
+        //ex = new ExerciseFrame(str);
     }
 
     public static void callCoreCommand(String str) {
