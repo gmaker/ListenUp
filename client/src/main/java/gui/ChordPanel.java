@@ -69,7 +69,7 @@ public class ChordPanel extends JPanel implements ActionListener
     }
 
     private void exerciseFrameCommand(String command){
-        MainWindow.addExerciseFrame(command);
+        MainWindow.addLevelFrame(command);
         System.out.println(command);
     }
 }

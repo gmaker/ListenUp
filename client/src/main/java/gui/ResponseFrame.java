@@ -108,10 +108,4 @@ public class ResponseFrame extends JFrame implements ActionListener{
         }
         this.dispose();
     }
-
-    public static void main(String[] args){
-        new ResponseFrame("success");
-        new ResponseFrame("fail");
-        new ResponseFrame("warning");
-    }
 }

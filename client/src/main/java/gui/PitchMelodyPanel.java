@@ -103,7 +103,7 @@ public class PitchMelodyPanel extends JPanel implements ActionListener {
 
     private void exerciseFrameCommand(String command){
         //changeCards(command);
-        MainWindow.addExerciseFrame(command);
+        MainWindow.addLevelFrame(command);
         System.out.println(command);
     }
 }

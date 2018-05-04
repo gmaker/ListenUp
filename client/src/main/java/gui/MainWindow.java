@@ -67,10 +67,13 @@ public class MainWindow extends JFrame implements NoteListener{
      * Method to create Exercise Frame for exercises
      * Called from sub-panel classes
      */
-    public static void addExerciseFrame(String str){
+    public static void addLevelFrame(String str){
         System.out.println("Change Main Panel " + str);
         lf = new LevelFrame(str);
-        //ex = new ExerciseFrame(str);
+    }
+
+    public static void addExerciseFrame(String str, int n){
+        ex = new ExerciseFrame(str, n);
     }
 
     public static void callCoreCommand(String str) {

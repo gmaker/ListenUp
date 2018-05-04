@@ -106,7 +106,7 @@ public class MenuPanel extends JPanel implements ActionListener{
             //MultiThread thread2 = new MultiThread("Notes", fq);
             //thread2.go();
         } else if(e.getSource() == rhythmButton){
-            NotePanel.appendTextArea("hello");
+            //NotePanel.appendTextArea("hello");
         } else {
             changeCards(e.getActionCommand());
         }

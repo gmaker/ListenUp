@@ -122,6 +122,9 @@ public class PitchComparison {
         } else {
             temp = notesFlat;
         }
+
+        float cents = 0f;
+
         if(marker==0){
             if ((pBot / p) >= .99090909f) {
                 return temp.get(11);

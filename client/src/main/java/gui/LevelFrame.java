@@ -40,6 +40,7 @@ public class LevelFrame extends JFrame implements ListSelectionListener, ActionL
         splitPane = new JSplitPane();
 
         descriptionArea = new JTextArea();
+        descriptionArea.setFont(new Font("Arial", Font.PLAIN, 20));
         descriptionArea.setLineWrap(true);
         descriptionArea.setWrapStyleWord(true);
         descriptionArea.setEditable(false);
@@ -47,13 +48,15 @@ public class LevelFrame extends JFrame implements ListSelectionListener, ActionL
         startButton = new JButton("Start");
         startButton.addActionListener(this);
         startButton.setContentAreaFilled(false);
-        startButton.setPreferredSize(new Dimension(150, 40));
+        startButton.setFont(new Font("Arial", Font.PLAIN, 18));
+        startButton.setPreferredSize(new Dimension(200, 40));
 
         mainPanel = new JPanel(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
         mainPanel.setSize(new Dimension(300, 250));
         mainPanel.add(descriptionArea);
         mainPanel.add(Box.createRigidArea(new Dimension(10, 0)));
+        mainPanel.setBackground(Color.WHITE);
         mainPanel.add(startButton);
 
         bottomPanel = new JPanel();
@@ -63,10 +66,11 @@ public class LevelFrame extends JFrame implements ListSelectionListener, ActionL
         bottomPanel.add(Box.createRigidArea(new Dimension(10, 0)));
         bottomPanel.add(mainPanel);
         bottomPanel.add(Box.createRigidArea(new Dimension(10, 0)));
+        bottomPanel.setBackground(Color.WHITE);
 
         add(bottomPanel);
 
-        setSize(new Dimension(400, 350));
+        setSize(new Dimension(500, 350));
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);
@@ -80,8 +84,9 @@ public class LevelFrame extends JFrame implements ListSelectionListener, ActionL
         levelListItems = ld.parseLevels(levels, size);
         levelsList = new JList<>(levelListItems);
 
+        levelsList.setFont(new Font("Arial", Font.PLAIN, 19));
         levelsList.setVisibleRowCount(size);
-        levelsList.setFixedCellHeight(30);
+        levelsList.setFixedCellHeight(40);
         levelsList.setFixedCellWidth(100);
         levelsList.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         levelsList.addListSelectionListener(this);
@@ -105,8 +110,13 @@ public class LevelFrame extends JFrame implements ListSelectionListener, ActionL
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==startButton){
-            new ExerciseFrame(exercise, lnum);
-            this.dispose();
+            if(levelsList.getSelectedValue()!=null) {
+                //new ExerciseFrame(exercise, lnum);
+                MainWindow.addExerciseFrame(exercise, lnum);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "Please select a level");
+            }
         }
     }
 }

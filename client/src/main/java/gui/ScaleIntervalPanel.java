@@ -70,7 +70,7 @@ public class ScaleIntervalPanel extends JPanel implements ActionListener{
     }
 
     private void exerciseFrame(String command){
-        MainWindow.addExerciseFrame(command);
+        MainWindow.addLevelFrame(command);
         System.out.println(command);
     }
 }

@@ -67,6 +67,7 @@ public class ExerciseFrame extends JFrame implements ActionListener {
         buttonPanel.setBackground(Color.BLACK);
 
         startButton = new JButton("Start");
+        startButton.requestFocus();
         replayButton = new JButton("Replay");
 
         createButton(startButton, buttonPanel);
@@ -74,6 +75,7 @@ public class ExerciseFrame extends JFrame implements ActionListener {
 
         instructionLabel = new JLabel();
         instructionLabel.setFont(LABELFONT);
+
 
         exerciseName = new JTextField();
         exerciseName.setPreferredSize(new Dimension(250, 50));
@@ -109,7 +111,6 @@ public class ExerciseFrame extends JFrame implements ActionListener {
     }
 
     private void createCirclePanel(){
-
         circlePanel.setSize(400, 100);
         mainPanel.add(circlePanel, BorderLayout.SOUTH);
     }
@@ -173,9 +174,10 @@ public class ExerciseFrame extends JFrame implements ActionListener {
         assert rephrase != null;
             rephrase = rephrase.toLowerCase();
         if(command.equals("Intervals")) {
-            instructionLabel.setText("Sing the " + rephrase + ".");
+            instructionLabel.setText("<html>Sing the " + rephrase + ".</html>");
         } else {
-            instructionLabel.setText("Sing the " + rephrase + " from the given note.");
+            instructionLabel.setText("<html><p style=\"text-align:center\">" +
+                    "Sing the " + rephrase + " from the given starting note.</p></html>");
         }
     }
 
@@ -228,23 +230,4 @@ public class ExerciseFrame extends JFrame implements ActionListener {
             new ResponseFrame("fail");
         }
     }
-
-    /*@Override
-    public void keyTyped(KeyEvent e) {
-        System.out.println("Key typed");
-        if(e.getKeyCode()==KeyEvent.VK_SPACE){
-            System.out.println("space pressed");
-            startExercise();
-        }
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-        System.out.println("key pressed");
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-        System.out.println("key released");
-    }*/
 }

@@ -40,18 +40,9 @@ public class CoreController {
             pc.setFlatSharpToggle(false);
         } else if(action.equals("sharp")){
             pc.setFlatSharpToggle(true);
-        }
-        /** Actual Methods for Use (include some above) **/
-        /*else if(eNum!=-1){
-            getExerciseData(action, eNum);
-            startPitchAnalysis(action);
-
-        } else if(action.equals("flat")){
-            pc.setFlatSharpToggle(false);
-        }
-        else {
+        } else {
             System.err.println("INVALID COMMAND");
-        }*/
+        }
     }
 
     private void startPitchAnalysis(String action){
