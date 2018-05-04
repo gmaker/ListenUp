@@ -45,14 +45,14 @@ public class ScaleIntervalPanel extends JPanel implements ActionListener{
         button.setForeground(Color.WHITE);
         button.setContentAreaFilled(false);
         button.setBorder(BorderFactory.createBevelBorder(0,
-                Color.green, new Color(0, 0, 0, 0)));
+                Color.black, new Color(0, 0, 0, 0)));
         setButtonDimension(button, p);
         p.add(button);
     }
 
     private void setButtonDimension(JComponent j, JPanel p){
         j.setPreferredSize(j.getPreferredSize());
-        p.add(Box.createRigidArea(new Dimension(30, 45)));
+        p.add(Box.createRigidArea(new Dimension(30, 100)));
     }
 
     @Override

@@ -42,20 +42,25 @@ public class MainWindow extends JFrame implements NoteListener{
 
         SIPanel = new ScaleIntervalPanel();
         CPanel = new ChordPanel();
-        RPanel = new RhythmPanel();
-        PMPanel = new PitchMelodyPanel();
+        //RPanel = new RhythmPanel();
+        //PMPanel = new PitchMelodyPanel();
 
         eastPanel = new JPanel();
         eastPanel.setLayout(new BoxLayout(eastPanel, BoxLayout.Y_AXIS));
         eastPanel.add(SIPanel);
         eastPanel.add(CPanel);
-        eastPanel.add(RPanel);
-        eastPanel.add(PMPanel);
+        //eastPanel.add(RPanel);
+        //eastPanel.add(PMPanel);
         eastPanel.setOpaque(false);
 
+        JLabel titleLabel = new JLabel("Listen Up!", SwingConstants.CENTER);
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 125));
+        titleLabel.setForeground(Color.BLACK);
+
+        contentPane.add(titleLabel, BorderLayout.NORTH);
         contentPane.add(eastPanel, BorderLayout.WEST);
 
-        this.add(contentPane);
+        add(contentPane);
 
         pack();
         setResizable(true);

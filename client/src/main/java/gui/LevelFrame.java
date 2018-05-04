@@ -20,7 +20,7 @@ public class LevelFrame extends JFrame implements ListSelectionListener, ActionL
     private JList<String> levelsList;
     private JPanel mainPanel;
     private JPanel bottomPanel;
-    private JSplitPane splitPane;
+    //private JSplitPane splitPane;
 
     private ArrayList<String> levelData;
     private String[] levelListItems;
@@ -37,7 +37,7 @@ public class LevelFrame extends JFrame implements ListSelectionListener, ActionL
 
         setTitle("Choose level of difficulty");
 
-        splitPane = new JSplitPane();
+        //splitPane = new JSplitPane();
 
         descriptionArea = new JTextArea();
         descriptionArea.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -49,7 +49,7 @@ public class LevelFrame extends JFrame implements ListSelectionListener, ActionL
         startButton.addActionListener(this);
         startButton.setContentAreaFilled(false);
         startButton.setFont(new Font("Arial", Font.PLAIN, 18));
-        startButton.setPreferredSize(new Dimension(200, 40));
+        startButton.setPreferredSize(new Dimension(100, 40));
 
         mainPanel = new JPanel(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
@@ -58,6 +58,8 @@ public class LevelFrame extends JFrame implements ListSelectionListener, ActionL
         mainPanel.add(Box.createRigidArea(new Dimension(10, 0)));
         mainPanel.setBackground(Color.WHITE);
         mainPanel.add(startButton);
+        //splitPane.setRightComponent(mainPanel);
+
 
         bottomPanel = new JPanel();
         bottomPanel.setLayout(new BoxLayout(bottomPanel, BoxLayout.LINE_AXIS));
@@ -66,7 +68,11 @@ public class LevelFrame extends JFrame implements ListSelectionListener, ActionL
         bottomPanel.add(Box.createRigidArea(new Dimension(10, 0)));
         bottomPanel.add(mainPanel);
         bottomPanel.add(Box.createRigidArea(new Dimension(10, 0)));
+        bottomPanel.add(mainPanel);
+        bottomPanel.add(Box.createRigidArea(new Dimension(10, 0)));
         bottomPanel.setBackground(Color.WHITE);
+
+        //splitPane.setLeftComponent(bottomPanel);
 
         add(bottomPanel);
 
