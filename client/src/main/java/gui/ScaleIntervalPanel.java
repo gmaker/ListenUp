@@ -33,8 +33,10 @@ public class ScaleIntervalPanel extends JPanel implements ActionListener{
         scaleButton = new JButton("Scales");
         intervalButton = new JButton("Intervals");
         createButton(scaleButton, mainPanel);
+        mainPanel.add(Box.createRigidArea(new Dimension(41, 100)));
         createButton(intervalButton, mainPanel);
 
+        //setBorder(BorderFactory.createLineBorder(Color.WHITE));
         add(mainPanel);
         setOpaque(false);
     }
@@ -44,15 +46,17 @@ public class ScaleIntervalPanel extends JPanel implements ActionListener{
         button.setFont(BUTTONFONT);
         button.setForeground(Color.WHITE);
         button.setContentAreaFilled(false);
+        button.setFocusPainted(false);
         button.setBorder(BorderFactory.createBevelBorder(0,
-                Color.black, new Color(0, 0, 0, 0)));
-        setButtonDimension(button, p);
+                Color.WHITE, new Color(0, 0, 0, 0)));
+        //setButtonDimension(button, p);
         p.add(button);
+        //p.add(Box.createRigidArea(new Dimension(50, 100)));
     }
 
     private void setButtonDimension(JComponent j, JPanel p){
         j.setPreferredSize(j.getPreferredSize());
-        p.add(Box.createRigidArea(new Dimension(30, 100)));
+        p.add(Box.createRigidArea(new Dimension(50, 50)));
     }
 
     @Override

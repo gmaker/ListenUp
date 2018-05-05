@@ -33,8 +33,10 @@ public class ChordPanel extends JPanel implements ActionListener
         chordButton = new JButton("Chords");
         tetrachordButton = new JButton("Tetrachords");
         createButton(chordButton, mainPanel);
+        mainPanel.add(Box.createRigidArea(new Dimension(50, 100)));
         createButton(tetrachordButton, mainPanel);
 
+        //setBorder(BorderFactory.createLineBorder(Color.WHITE));
         add(mainPanel);
         setOpaque(false);
     }
@@ -44,15 +46,17 @@ public class ChordPanel extends JPanel implements ActionListener
         button.setFont(BUTTONFONT);
         button.setForeground(Color.WHITE);
         button.setContentAreaFilled(false);
+        button.setFocusPainted(false);
         button.setBorder(BorderFactory.createBevelBorder(0,
-                Color.black, new Color(0, 0, 0, 0)));
-        setButtonDimension(button, p);
+                Color.WHITE, new Color(0, 0, 0, 0)));
+        //setButtonDimension(button, p);
         p.add(button);
+        //p.add(Box.createRigidArea(new Dimension(50, 100)));
     }
 
     private void setButtonDimension(JComponent j, JPanel p){
-        j.setPreferredSize(j.getPreferredSize());
-        p.add(Box.createRigidArea(new Dimension(30, 100)));
+        //j.setPreferredSize(j.getPreferredSize());
+        //p.add(Box.createRigidArea(new Dimension(50, 75)));
     }
 
     @Override

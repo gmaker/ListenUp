@@ -101,8 +101,8 @@ public class ExerciseFrame extends JFrame implements ActionListener {
         add(mainPanel);
         add(buttonPanel, BorderLayout.SOUTH);
 
-        setSize(new Dimension(400, 400));
-        pack();
+        setSize(new Dimension(475, 475));
+        //pack();
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);
@@ -163,7 +163,7 @@ public class ExerciseFrame extends JFrame implements ActionListener {
     private void getRandomNumber(String numExercises){
         Random r = new Random();
         int n = Integer.parseInt(numExercises.substring(2,4));
-        exerciseNumR = r.nextInt(n);
+        exerciseNumR = 16;//r.nextInt(n);
     }
 
     private void setPanelText(){

@@ -14,8 +14,8 @@ public class MainWindow extends JFrame implements NoteListener{
     /** Different Exercise Panels **/
     private ScaleIntervalPanel SIPanel;
     private ChordPanel CPanel;
-    private RhythmPanel RPanel;
-    private PitchMelodyPanel PMPanel;
+    //private RhythmPanel RPanel;
+    //private PitchMelodyPanel PMPanel;
     private static ExerciseFrame ex;
     private static LevelFrame lf;
 
@@ -36,7 +36,7 @@ public class MainWindow extends JFrame implements NoteListener{
 
         this.setJMenuBar(new AppMenuBar(this));
 
-        JLabel contentPane = new JLabel(new ImageIcon("mic.jpg"));
+        JLabel contentPane = new JLabel(new ImageIcon("bluemic8.jpg"));
         add(contentPane);
         contentPane.setLayout(new BorderLayout());
 
@@ -55,7 +55,7 @@ public class MainWindow extends JFrame implements NoteListener{
 
         JLabel titleLabel = new JLabel("Listen Up!", SwingConstants.CENTER);
         titleLabel.setFont(new Font("Arial", Font.BOLD, 125));
-        titleLabel.setForeground(Color.BLACK);
+        titleLabel.setForeground(Color.WHITE);
 
         contentPane.add(titleLabel, BorderLayout.NORTH);
         contentPane.add(eastPanel, BorderLayout.WEST);
