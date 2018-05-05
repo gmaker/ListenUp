@@ -138,29 +138,61 @@ Scales
 6;C Wholetone Scale: Descending;60;s;7;CN,AS,GS,FS,EN,DN,CN
 6;A Wholetone Scale: Descending;57;s;7;AN,GN,FN,DS,CS,BN,AN
 Intervals
-1;04
-1;Perfect Octave, Ascending;48;f;2;CN,CN
-1;Perfect 5th, Ascending;48;f;2;CN,GN
-1;Perfect 4th, Ascending;48;f;2;CN,FN
-1;Perfect Octave, Ascending;50;s;2;DN,DN
-2;01
-2;Major Third, Ascending;48;f;2;CN,EN
+1;18
+1;Perfect Octave: Ascending;48;f;2;CN,CN
+1;Perfect Octave: Ascending;50;s;2;DN,DN
+1;Perfect Octave: Ascending;53;f;2;FN,FN
+1;Perfect Octave: Descending;59;f;2;BN,BN
+1;Perfect Octave: Descending;57;f;2;AN,AN
+1;Perfect Octave: Descending;55;f;2;GN,GN
+1;Perfect 5th: Ascending;48;f;2;CN,GN
+1;Perfect 5th: Ascending;50;f;2;DN,AN
+1;Perfect 5th: Ascending;55;f;2;GN,DN
+1;Perfect 5th: Descending;57;f;2;AN,DN
+1;Perfect 5th: Descending;60;f;2;CN,FN
+1;Perfect 5th: Descending;62;f;2;DN,GN
+1;Perfect 4th: Ascending;48;f;2;CN,FN
+1;Perfect 4th: Ascending;52;f;2;EN,AN
+1;Perfect 4th: Ascending;55;f;2;GN,CN
+1;Perfect 4th: Descending;57;f;2;AN,EN
+1;Perfect 4th: Descending;58;f;2;BF,FN
+1;Perfect 4th: Descending;60;f;2;CN,GN
+2;02
+2;Major 2nd: Ascending;53;s;2;EN,FS
+2;Major 3rd: Ascending;48;f;2;CN,EN
+3;02
+3;Minor 2nd: Ascending;50;f;2;DN,EF
+3;Tritone: Ascending;48;s;2;CN,FS
+4;02
+4;Major 6th: Ascending;53;f;2;FN,DN
+4;Minor 7th: Ascending;48;f;2;CN,BF
 Chords
 1;04
-1;C Major, Ascending;48;f;3;CN,EN,GN
-1;G Major, Ascending;55;s;3;GN,BN,DN
-1;D Major, Ascending;50;s;3;DN,FS,AN
-1;F Major, Ascending;53;f;3;FN,AN,CN
-2;1
-2;C Minor, Ascending;48;f;3;CN,EF,GN
+1;C Major, root position: Ascending;48;f;3;CN,EN,GN
+1;G Major, root position: Ascending;55;s;3;GN,BN,DN
+1;D Major, root position: Ascending;50;s;3;DN,FS,AN
+1;F Major, root position: Ascending;53;f;3;FN,AN,CN
+2;02
+2;F Major, 1st inversion: Ascending;57;f;3;AN,CN,FN
+2;C Minor, root position: Ascending;48;f;3;CN,EF,GN
+3;02
+3;A Minor, 2nd inversion: Ascending;52;f;3;EN,AN,CN
+3;G Dominant 7, root position: Ascending;55;f;4;GN,BN,DN,FN
+4;02
+4;C Augmented, root position: Ascending;48;s;3;CN,EN,GS
+4;D Diminished, root position: Ascending;53;f;3;DN,FN,AF
 Tetrachords
 1;04
-1;Major Tetrachord, Ascending;48;f;4;CN,DN,EN,FN
-1;Major Tetrachord, Ascending;50;s;4;DN,EN,FS,GN
-1;Major Tetrachord, Ascending;53;f;4;FN,GN,AN,BF
-1;Major Tetrachord, Ascending;55;s;4;GN,AN,BN,CN
-2;01
-2;Minor Tetrachord, Ascending;48;f;4;CN,DN,EF,FN
+1;Major Tetrachord: Ascending;48;f;4;CN,DN,EN,FN
+1;Major Tetrachord: Ascending;50;s;4;DN,EN,FS,GN
+1;Major Tetrachord: Ascending;53;f;4;FN,GN,AN,BF
+1;Major Tetrachord: Ascending;55;s;4;GN,AN,BN,CN
+2;02
+2;Minor Tetrachord: Ascending;48;f;4;CN,DN,EF,FN
+2;Phrygian Tetrachord: Ascending;55;f;4;GN,AF,BF,CN
+3;02
+3;Minor Tetrachord: Descending;57;s;4;AN,GN,FS,EN
+3;Phrygian Tetrachord: Ascending;52;f;4;EN,FN,GN,AN
 EXTRA
 1;E Major Scale: Ascending;52;s;8;EN,FS,GS,AN,BN,CS,DS,EN
 1;Bf Major Scale: Ascending;58;f;8;BF,CN,DN,EF,FN,GN,AN,BF

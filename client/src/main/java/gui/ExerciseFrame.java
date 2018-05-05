@@ -68,7 +68,7 @@ public class ExerciseFrame extends JFrame implements ActionListener {
         buttonPanel.setBackground(Color.BLACK);
 
         startButton = new JButton("Start");
-        startButton.requestFocus();
+        startButton.setFocusPainted(true);
         replayButton = new JButton("Replay");
 
         createButton(startButton, buttonPanel);
@@ -79,7 +79,7 @@ public class ExerciseFrame extends JFrame implements ActionListener {
 
 
         exerciseName = new JTextField();
-        exerciseName.setPreferredSize(new Dimension(250, 50));
+        exerciseName.setPreferredSize(new Dimension(275, 50));
         exerciseName.setFont(EXERCISEFONT);
         exerciseName.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         exerciseName.setHorizontalAlignment(SwingConstants.CENTER);
@@ -88,7 +88,10 @@ public class ExerciseFrame extends JFrame implements ActionListener {
         exerciseNameLabel = new JPanel();
         exerciseNameLabel.add(exerciseName, BorderLayout.CENTER);
 
-        guideLabel = new JLabel("Press start or the spacebar when you are ready.");
+        guideLabel = new JLabel();
+        String labelText = "<html><p style=\"text-align:center\">" +
+                "Press start when you are ready.<br>Press replay if you would like to start over.</p></html>";
+        guideLabel.setText(labelText);
 
         createLabel(new JLabel(), mainPanel);
         createLabel(instructionLabel, mainPanel);

@@ -33,6 +33,7 @@ public class ResultsFrame extends JFrame implements ActionListener{
         textArea.setEditable(false);
         setLabelText();
         mainPanel.add(Box.createRigidArea(new Dimension(10, 10)));
+        mainPanel.setBackground(Color.WHITE);
         mainPanel.add(textArea, SwingConstants.CENTER);
 
 
@@ -42,6 +43,7 @@ public class ResultsFrame extends JFrame implements ActionListener{
         button.setContentAreaFilled(false);
         button.setBackground(Color.WHITE);
         buttonPanel = new JPanel();
+        buttonPanel.setBackground(Color.WHITE);
         buttonPanel.add(button);
 
         add(mainPanel, BorderLayout.CENTER);
