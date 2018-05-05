@@ -122,26 +122,59 @@ public class PitchComparison {
         } else {
             temp = notesFlat;
         }
+        double centsBelow = 1200 * (Math.log(p/pBot)/Math.log(2));
+        double centsAbove = 1200 * (Math.log(pTop/p)/Math.log(2));
+        String result;
 
-        float cents = 0f;
+        if(centsBelow <= 25.0){
+            if(marker==0){
+                result = temp.get(11);
+            } else {
+                result = temp.get(marker - 1);
+            }
+        } else if(centsAbove <= 25.0) {
+            result = temp.get(marker);
+        } else {
+            result = "check";
+        }
 
-        if(marker==0){
-            if ((pBot / p) >= .99090909f) {
+        double middleNum;
+        double middleFrequencyNum;
+        if(result.equals("check")){
+            middleNum = (pTop-pBot)/2;
+            middleFrequencyNum = pBot + middleNum;
+            if(p <= middleFrequencyNum){
+                if(marker==0){
+                    result = temp.get(11) + " sharp";
+                } else {
+                    result = temp.get(marker - 1) + " sharp";
+                }
+            } else if(p > middleFrequencyNum){
+                result = temp.get(marker) + " flat";
+            } else {
+                result = "X";
+            }
+        }
+
+        //Todo: get rid of these loops - loops above should do the trick
+        /*if(marker==0){
+            if (centsBelow < 8.0) {
                 return temp.get(11);
-            } else if ((pTop / p) <= 1.00909091f) {
+            } else if (centsAbove < 8.0) {
                 return temp.get(marker);
             } else {
                 return "X";
             }
         } else {
-            if ((pBot / p) >= .99090909f) {
+            if (centsBelow < 8.0) {
                 return temp.get(marker - 1);
-            } else if ((pTop / p) <= 1.00909091f) {
+            } else if (centsAbove < 8.0) {
                 return temp.get(marker);
             } else {
                 return "X";
             }
-        }
+        }*/
+        return result;
     }
 
     public static void setFlatSharpToggle(boolean toggle){
@@ -152,34 +185,6 @@ public class PitchComparison {
         }
     }
 }
-
-/*enum Pitch {
-    CN (65.41),
-    CS (69.3),
-    DF (69.3),
-    DN (73.42),
-    DS (77.78),
-    EF (77.78),
-    EN (82.41),
-    FN (87.31),
-    FS (92.50),
-    GF (92.50),
-    GN (98.0),
-    GS (103.83),
-    AF (103.83),
-    AN (110.0),
-    AS (116.54),
-    BF (116.54),
-    BN (123.47);
-
-    private final double pitchBase;
-
-    Pitch(double pitch){
-        pitchBase = pitch;
-    }
-
-    // TODO: Do not use this anymore - or find a way to use it differently.
-}*/
 
 
 /**

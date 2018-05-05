@@ -14,7 +14,7 @@ public class CirclePanel extends JPanel{
 
     public CirclePanel(int num){
         numCircle = num;
-        fillArray = new int[num];
+        fillArray = new int[numCircle];
     }
 
     public void paintComponent(Graphics g){
@@ -39,6 +39,9 @@ public class CirclePanel extends JPanel{
 
     public void setNumCircleFill(int num){
         numCircleFill = num;
+    }
+    public void resetFillArray() {
+        fillArray = new int[numCircle];
     }
 
 }

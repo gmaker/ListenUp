@@ -88,6 +88,7 @@ public class MainWindow extends JFrame implements NoteListener{
     @Override
     public void noteChanged(String note, float pitch) {
         if(pitch!=81.818184f) {
+            //System.out.println(note + " " + pitch);
             ex.noteChanged(note, pitch);
         }
     }

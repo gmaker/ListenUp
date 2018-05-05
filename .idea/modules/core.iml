@@ -5,9 +5,9 @@
     <content url="file://$MODULE_DIR$/../../core">
       <excludeFolder url="file://$MODULE_DIR$/../../core/.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/../../core/build" />
+      <excludeFolder url="file://$MODULE_DIR$/../../core/out" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="src1" level="project" />
   </component>
 </module>

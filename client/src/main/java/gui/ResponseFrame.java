@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  * Created by Sean Murphy on 4/25/2018.
@@ -12,6 +13,7 @@ public class ResponseFrame extends JFrame implements ActionListener{
 
     /**  **/
     private String response;
+    private ExerciseFrame ef;
 
     /**  **/
     private JPanel mainPanel;
@@ -23,8 +25,9 @@ public class ResponseFrame extends JFrame implements ActionListener{
     private final Font LABELFONT = new Font(
             "Arial", Font.BOLD, 30);
 
-    public ResponseFrame(String r) {
+    public ResponseFrame(String r, ExerciseFrame f) {
         response = r;
+        ef=f;
 
         mainPanel = new JPanel(new GridLayout(1,1,10,0));
         buttonPanel = new JPanel(new FlowLayout());
@@ -39,7 +42,7 @@ public class ResponseFrame extends JFrame implements ActionListener{
         add(mainPanel);
         add(buttonPanel, BorderLayout.SOUTH);
 
-        setSize(new Dimension(400, 350));
+        setSize(new Dimension(450, 350));
         setLocationRelativeTo(null);
         //setResizable(false);
         setVisible(true);
@@ -67,13 +70,10 @@ public class ResponseFrame extends JFrame implements ActionListener{
                     "You got the exercise wrong.<br>Would you like to try again?</p></html>");
             mainPanel.setBackground(Color.RED);
             buttonPanel.setBackground(Color.RED);
-            //button1 = new JButton("Try Again");
-            //button2 = new JButton("Move On");
             addButton1(button1, "Try Again");
             addButton2(button2, "Move On");
             addButton2(button3, "See Results");
         }
-        //addButton(button1, button2);
     }
 
     private void addButton1(JButton b1, String text){
@@ -93,19 +93,33 @@ public class ResponseFrame extends JFrame implements ActionListener{
 
     private void createButton(JButton b){
         b.addActionListener(this);
-        b.setPreferredSize(new Dimension(100, 40));
+        b.setPreferredSize(new Dimension(110, 40));
         b.setContentAreaFilled(true);
         b.setBackground(Color.WHITE);
+        b.setFocusPainted(false);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         System.out.println(e.getActionCommand());
         if(e.getActionCommand().equals("Try Again")){
-            //TODO: add functionality once comparision is finished
+            ef.resetCurrentExercise();
+            this.dispose();
+        } else if(e.getActionCommand().equals("OK")) {
+            this.setVisible(false);
+            MainWindow.callCoreCommand("Notes");
+            this.dispose();
+        } else if(e.getActionCommand().equals("See Results")){
+            createResultsFrame();
         } else {
-
+            ef.newExercise();
+            this.dispose();
         }
-        this.dispose();
+    }
+
+    private void createResultsFrame(){
+        ArrayList<String> input = ef.getInputList();
+        String original = ef.getNoteList();
+        new ResultsFrame(input, original);
     }
 }
